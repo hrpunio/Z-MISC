@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+  <Document>
+    <name>My Photos</name>
+    <open>1</open>
+    <Style id="Photo">
+      <IconStyle>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/pal4/icon38.png</href>
+          <scale>1.0</scale>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Folder>
+      <name>Waypoints</name>
+      <open>0</open>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc04988_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc04988_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.5598650411389,54.4413373014417,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc04990_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc04990_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.5622819567361,54.4412706338361,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc04991_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc04991_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.7895393369917,54.0969800950694,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc04993_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc04993_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.7895393369917,54.0969800950694,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc04996_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc04996_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.7895393369917,54.0969800950694,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc04997_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc04997_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.7895393369917,54.0969800950694,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc04999_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc04999_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.8052479378944,54.0926956622583,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc05001_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc05001_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.9573443178861,53.8433454308583,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc05003_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc05003_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.932901252225,53.7302067016361,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc05005_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc05005_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.9321726328833,53.7293627093944,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc05006_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc05006_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.9301944896472,53.724360466,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc05008_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc05008_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.9303511495528,53.7240478619389,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc05009_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc05009_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.9263610021778,53.7285547229778,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027/dsc05010_r.jpg'
+          width='3840' height='2161'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>dsc05010_r.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

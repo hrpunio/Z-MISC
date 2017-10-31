@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+  <Document>
+    <name>My Photos</name>
+    <open>1</open>
+    <Style id="Photo">
+      <IconStyle>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/pal4/icon38.png</href>
+          <scale>1.0</scale>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Folder>
+      <name>Waypoints</name>
+      <open>0</open>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_072404.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_072404.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_072646.jpg'
+          width='3120' height='4160'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_072646.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.5618106111111,54.4409044722222,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_072748.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_072748.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.5621494722222,54.4410625555556,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_075803.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_075803.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_082212.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_082212.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.7890649444444,54.0971830555556,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_082553.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_082553.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.7891805,54.0972961944444,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_082846.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_082846.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_082913.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_082913.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.7889054722222,54.0974113333333,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_084315.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_084315.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.8041381666667,54.0931147222222,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_085826.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_085826.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>19.0294469166667,54.0446326111111,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_092656.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_092656.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.9570017777778,53.8433791944444,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_094238.jpg'
+          width='3120' height='4160'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_094238.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.9328266388889,53.7302156111111,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_094248.jpg'
+          width='3120' height='4160'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_094248.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.9327753333333,53.7301364722222,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_094525.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_094525.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.9321786944444,53.7293414722222,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_095342.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_095342.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_095431.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_095431.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.9304708333333,53.7240128611111,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_095436.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_095436.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.9304518888889,53.7240228611111,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='20171027_Redmi/IMG_20171027_100253.jpg'
+          width='4160' height='3120'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>IMG_20171027_100253.jpg</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>18.9262113888889,53.7285216666667,0</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

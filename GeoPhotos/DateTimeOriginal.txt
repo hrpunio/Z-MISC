@@ -1,0 +1,13 @@
+exiftool dsc05010_r.jpg  | grep -i time
+
+# File Modification Date/Time     : 2017:10:31 06:06:15+01:00
+# File Access Date/Time           : 2017:10:31 06:07:11+01:00
+# File Inode Change Date/Time     : 2017:10:31 06:07:03+01:00
+# Exposure Time                   : 1/125
+# Date/Time Original              : 2017:10:31 06:07:16
+# Sony Date Time                  : 2017:10:31 06:07:16
+# 
+# Difference is 3min 7s
+#
+
+exiftool -geosync=-03:07 '-geotime<${DateTimeOriginal}+01:00' -geotag 20171027_Garmin.gpx 20171027
