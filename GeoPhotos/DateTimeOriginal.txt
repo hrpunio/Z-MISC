@@ -11,3 +11,7 @@ exiftool dsc05010_r.jpg  | grep -i time
 #
 
 exiftool -geosync=-03:07 '-geotime<${DateTimeOriginal}+01:00' -geotag 20171027_Garmin.gpx 20171027
+
+#
+exiftool -fileOrder gpsdatetime -p kml_gh.fmt 20171027 > SopotKwidzyn_gh.kml
+exiftool -fileOrder gpsdatetime -p gpx_gh.fmt 20171027 > SopotKwidzyn_gh.gpx
