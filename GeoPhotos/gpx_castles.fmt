@@ -22,7 +22,7 @@
 #[BODY]<wpt lat="$gpslatitude#" lon="$gpslongitude#">
 #[BODY]  <name>$Description</name>
 #[BODY]  <desc>$Description</desc>
-#[BODY]  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/$filename"><type>large</type></link>
-#[BODY]  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/$filename"><type>thumbnail</type></link>
+#[BODY]  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/TeutonicCastles/$filename"><type>large</type></link>
+#[BODY]  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/TeutonicCastles/$filename"><type>thumbnail</type></link>
 #[BODY]</wpt>
 #[TAIL]</gpx>
