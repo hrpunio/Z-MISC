@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx version="1.0"
+ creator="ExifTool 10.00"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://www.topografix.com/GPX/1/0"
+ xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<wpt lat="53.9151333640278" lon="19.0387324799917">
+  <name>Sztum Castle</name>
+  <desc>Sztum Castle</desc>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/3557531704_60491461e9_o_r.jpg"><type>large</type></link>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/3557531704_60491461e9_o_r.jpg"><type>thumbnail</type></link>
+</wpt>
+<wpt lat="53.8352211379997" lon="18.8276051639111">
+  <name>Gniew Castle</name>
+  <desc>Gniew Castle</desc>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/6207545536_3e0f7c250d_o_r.jpg"><type>large</type></link>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/6207545536_3e0f7c250d_o_r.jpg"><type>thumbnail</type></link>
+</wpt>
+<wpt lat="54.0814300718639" lon="21.5004910710003">
+  <name>Wolfschanze</name>
+  <desc>Wolfschanze</desc>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/14719109232_deff996c8f_o_r.jpg"><type>large</type></link>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/14719109232_deff996c8f_o_r.jpg"><type>thumbnail</type></link>
+</wpt>
+<wpt lat="53.735779" lon="18.921847">
+  <name>Kwidzyn Castle</name>
+  <desc>Kwidzyn Castle</desc>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/23432735994_4fd0c9db53_o_r.jpg"><type>large</type></link>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/23432735994_4fd0c9db53_o_r.jpg"><type>thumbnail</type></link>
+</wpt>
+<wpt lat="53.924833" lon="18.689761">
+  <name>Gutenberg Bible</name>
+  <desc>Gutenberg Bible</desc>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/23765421340_14200e0a49_o_r.jpg"><type>large</type></link>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/23765421340_14200e0a49_o_r.jpg"><type>thumbnail</type></link>
+</wpt>
+<wpt lat="54.356378" lon="19.682375">
+  <name>Frombork Castle</name>
+  <desc>Frombork Castle</desc>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/32429762032_de1148d439_o_r.jpg"><type>large</type></link>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/32429762032_de1148d439_o_r.jpg"><type>thumbnail</type></link>
+</wpt>
+<wpt lat="53.487039" lon="20.123974">
+  <name>Battlefield in Stembark</name>
+  <desc>Battlefield in Stembark</desc>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/35812875932_86bd3130bf_o_r.jpg"><type>large</type></link>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/35812875932_86bd3130bf_o_r.jpg"><type>thumbnail</type></link>
+</wpt>
+<wpt lat="54.038621" lon="19.027724">
+  <name>Malbork Castle</name>
+  <desc>Malbork Castle</desc>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/6539047845_a8c64973f3_o_r.jpg"><type>large</type></link>
+  <link href="https://raw.githubusercontent.com/hrpunio/Z-MISC/master/GeoPhotos/20171027/6539047845_a8c64973f3_o_r.jpg"><type>thumbnail</type></link>
+</wpt>
+</gpx>

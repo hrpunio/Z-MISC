@@ -15,3 +15,6 @@ exiftool -geosync=-03:07 '-geotime<${DateTimeOriginal}+01:00' -geotag 20171027_G
 #
 exiftool -fileOrder gpsdatetime -p kml_gh.fmt 20171027 > SopotKwidzyn_gh.kml
 exiftool -fileOrder gpsdatetime -p gpx_gh.fmt 20171027 > SopotKwidzyn_gh.gpx
+
+#
+exiftool -fileOrder gpsdatetime -p gpx_castles.fmt TeutonicCastles > Castles.gpx
