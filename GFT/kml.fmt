@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+  <Document>
+    <name>My Photos</name>
+    <open>1</open>
+    <Style id="Photo">
+      <geomScale>.75</geomScale>
+      <IconStyle>
+        <color>ffffffff</color>
+        <Icon>
+          <href>root://icons/palette-4.png</href>
+          <x>192</x>
+          <y>96</y>
+          <w>32</w>
+          <h>32</h>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="View">
+      <IconStyle>
+        <color>ffffffff</color>
+        <Icon>
+          <href>root://icons/palette-3.png</href>
+          <x>160</x>
+          <y>128</y>
+          <w>32</w>
+          <h>32</h>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Folder>
+      <name>Waypoints</name>
+      <open>0</open>
+<!-- !!! Body starts here !!!-->
+<Placemark>
+        <description><![CDATA[<br/><table><tr><td>
+        <img src='$directory/$filename'
+          width='$imagewidth' height='$imageheight'>
+        </td></tr></table>]]></description>
+        <Snippet/>
+        <name>$filename</name>
+        <styleUrl>#Photo</styleUrl>
+        <Point>
+          <altitudeMode>clampedToGround</altitudeMode>
+          <coordinates>$gpslongitude#,$gpslatitude#,0</coordinates>
+        </Point>
+      </Placemark>
+<!-- !!! Body ends here !!!-->
+    </Folder>
+  </Document>
+</kml>
