@@ -1,0 +1,16 @@
+<!-- DTD for simple office memoranda -->
+<!-- Elements -->
+<!ELEMENT memo  (to, from, body, close?)   >
+<!ELEMENT to    (#PCDATA) >
+<!ELEMENT from  (#PCDATA) >
+<!ELEMENT body  (p*) >
+<!ELEMENT p     (#PCDATA | q | pref )* >
+<!ELEMENT q     (#PCDATA) >
+<!ELEMENT pref  EMPTY >
+<!ELEMENT close (#PCDATA) >
+<!-- Attributes  -->
+<!-- ELEMENTS NAME VALUE DEFAULT -->
+<!ATTLIST p    id      ID #IMPLIED  >
+<!ATTLIST pref refid   IDREF #REQUIRED >
+<!ATTLIST memo status (confiden | public) "public" 
+               date    CDATA #IMPLIED >

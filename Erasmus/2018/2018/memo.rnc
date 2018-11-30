@@ -1,0 +1,29 @@
+# DTD for simple office memoranda
+
+# Elements
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+memo = element memo { attlist.memo, to, from, body, close? }
+to = element to { attlist.to, text }
+attlist.to &= empty
+from = element from { attlist.from, text }
+attlist.from &= empty
+body = element body { attlist.body, p* }
+attlist.body &= empty
+p = element p { attlist.p, (text | q | pref)* }
+q = element q { attlist.q, text }
+attlist.q &= empty
+pref = element pref { attlist.pref, empty }
+close = element close { attlist.close, text }
+attlist.close &= empty
+# Attributes
+
+# ELEMENTS NAME VALUE DEFAULT
+attlist.p &= attribute id { xsd:ID }?
+attlist.pref &= attribute refid { xsd:IDREF }
+attlist.memo &=
+  [ a:defaultValue = "public" ]
+  attribute status { "confiden" | "public" }?,
+  attribute date { text }?
+start = memo

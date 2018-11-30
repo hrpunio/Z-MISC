@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE memo SYSTEM "./memo.dtd">
+<memo >
+<to>Comrade Napoleon</to>
+<from>Snowball</from>
+<body>
+<p>
+If pro is the opposite of con, and progress 
+is moving forward, what is congress?
+See paragraph <pref refid='congr.def'/> for
+an answer </p>
+<!-- ... omitted p elements -->
+<p id='congr.def'>According to Professor Squealer 
+<q>Con In Latin means together 
+and Gradi means to walk.  Congradi literally 
+means meeting. This became congressus 
+and then Congress in English.</q> 
+BTW recontre is the verb to meet in French...
+</p>
+</body>
+<close>Comrade Snowball</close>
+</memo>
