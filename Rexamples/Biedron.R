@@ -1,9 +1,9 @@
 require(ggplot2)
 ## GoogleTrend Walues for 'Biedroń' ....
+## Time trend plotted as linear plot
 d <- read.csv("biedronkaczynskischetyna.csv", sep = ';',  header=T, na.string="NA");
 ##d <- subset (d, (date > 20181115 ));
 
-## western production
 p <- ggplot(d, aes(x = as.Date(date) )) +
   geom_point(aes(y = Biedron, colour = 'Biedron'), size=1) +
   geom_line(aes(y = Kaczynski, colour = 'Kaczynski'), size=.5) +
