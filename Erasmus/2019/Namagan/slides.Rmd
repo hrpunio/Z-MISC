@@ -1,0 +1,722 @@
+---
+title: "Statistics without spreadsheet"
+author: "Tomasz Przechlewski"
+date: "March, 2019"
+---
+
+## Who am I
+
+My name is Tomasz Plata-Przechlewski and I live in Poland. I was born on 16th june 1963
+(it was Sunday, the exact day when Valentina 
+Vladimirovna Tereshkova was launched into space 
+-- if you know who she is).
+
+BTW in Poland born-in-sunday means work-shy (ie. lazy) person (so you know now first Polish? proverb)
+
+BTW by pure statistics $1/7 \approx 14$% of the population is work-shy:-)
+
+I graduated economy long time ago and teached statistics and information systems (mainly).
+I am a big fan of open source software and know a few system including Linux and LaTeX.
+And of course R which I am about to show you in a while.
+
+![](./tp.jpg)
+
+My hobby is Road Cycling and History. A I am also a amateur photographer.
+(cf [tprzechlewski@flickr](https://www.flickr.com/photos/tprzechlewski/))
+
+## Agenda
+
+Statistics (nothing spectacular, just classical EDA)
+
+Statistical software (modern, non-standard or hipster #youcall)
+
+Poland (via statistical examples)
+
+## Three components of Statistics
+Theory (models) + Tools (programs) + Practice (real data)
+
+Undergraduate courses in social sciences in Poland
+concentrate on theory, use Spreadsheet as an universal computing tool
+Office-like editor (MS Word/OO Writes)
+as an universal publishing tool. Students works with artificial (clean)
+and small data sets thus are unaware of problems related to
+applying theory to practice.
+
+It is claimed that the above scenario is optimal. More advanced
+tools would be too difficult (and time consuming) to be acquinted
+to by students, thus distracting them
+from the main subject of the course, ie statistical methods. 
+
+Office sofware has limits. Spreadheets are good for number crunching,
+but are not so good in: data cleaning (Practice), advanced graphics,
+spatial analysis (T), team work(Practice).
+Office editors or Powerpoint/ are great tools
+but are not quality publishing of statistical results.
+
+In my (humble) opinion it is completny wrong not to use some modern
+tools even in introductory courses as it is (often) the only
+lectures undergraduta students complete.
+
+I will try to demonstrate that using modern tools for statistical
+analysis is the way to go. That (some) modern tools are not more
+difficult that office software (at higher than basic level)
+
+Conclusion: less theory, more pratice and common sense.
+
+## Learnig curve comparison
+
+## Learning statistic to social-science studies in Poland
+
+Typically a statistical course for undergraduate students
+in social sciences in Poland contains:
+descriptive statistics for one variable,
+descriptive methods for an association of two variables
+elementary time series analysis (moving averages,
+linear trend/seasonality)
+Interference/probablity calculus is lectured marginally or omitted
+as well as
+graphical methods and information visualization.
+
+Oversimplistic 'value chain' of statistical analysis
+
+model/description -> interpretation
+
+raw data -> consistent data -> results -> publishing
+
+## Example: Full Time Equivalence (FTE)
+
+Number of students.
+
+Who is a student?
+
+Student is a person attending to
+a 3rd level status school in in the
+3-stage education system (cf [Educational_stage](https://en.wikipedia.org/wiki/Educational_stage)).
+The answer is still non-obvious as there are many
+forms of teriary education. For example:
+
+The UNESCO stated that tertiary education focuses on learning
+endeavors in specialized fields. It includes academic and higher
+vocational education.
+
+So according to the above definition the school do not belongs
+to tertiary education if its status is not academic and/or higher
+vocational. Example:  Dance Academy or
+University for Elderly people (aka University of the 3rd Age).
+Both are popular in Poland.
+
+In many countries there are some certification scheme. For example
+in Poland a school must apply (and get) a certificate to be
+regarded as high school (ie part of tertiary level of education)
+
+Heads vs Majors
+
+Student can be enrolled to more than one course (major).
+So for counting heads it is necessary  to remove duplicates
+otherwise one would count majors not persons.
+
+Part time studies
+
+FTE stands for Full-Time-Equivalent, an approximation of the
+number of students who would be enrolled full-time
+
+Full time equivalent (FTE) -- FTE is based on student credit
+hours. It is obtained by dividing student credit
+hours by some a number of credit hours for full-time-study.
+
+Conclusion: Majors, Persons or FTEs? Which is the best?
+
+[University of Utah/Office of Analysis,
+Assessment and Accreditation](http://www.usu.edu/aaa/about_our_data.cfm)
+google:single multiple majors fte
+
+## Example: measurement of tourism activity [concept of an Indicator]
+
+Who is a tourist. According to
+[Glossary:Tourism](https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:Tourism)
+
+Tourism means the activity of visitors taking a trip
+to a main destination outside their usual environment,
+for less than a year, for any main purpose, including business,
+leisure or other personal purpose,
+other than to be employed by a resident entity in the place visited.
+
+According to the above definition to be regarded as tourist one has
+to change her/his accomodation place for less than
+one year (otherwise Eurostat would regard her/him as migrat)
+
+The usual meaning (at least in Poland) is that tourist
+is travelling for leasure not to work. Poeple travelling to work
+has other needs/aims than those travelling to rest
+(they usually do not use hotels for example)
+so the above definition solves some problems but at the same time
+creates many others.
+
+Number of tourists: do not distinguish between various form of turists,
+difficult to collect (who is a turist anyway?)
+
+Various `number of' tourist-oriented establishments
+(hotels, catering units, beds,
+nights spent) etc. They do not measure turists per-se but
+are highly related and more reliable (as easier to count).
+
+Indicator of turist activity (by various tourist types).
+
+Conclusion: measurement of tourism activity is not trival
+Other similar: internet user, migrant, unemployed person,
+illiterate person
+
+## Example: measurement of tourism activity [data collection]
+
+Tourism supply statistics (accommodation statistics): Data on rented accommodation ie. capacity and occupancy of tourist accommodation
+establishments in the reporting country. How collected? Registers?
+
+Quirks of data collection:
+Data up to year 2015 inclusive refer to only those units that made the statistical reports.
+Starting of data for January 2016,
+the method of imputation data was implemented (ie replacing
+missing data with some (possibly meaningful :-)) values.
+(cf [BDL](https://bdl.stat.gov.pl/BDL/dane/podgrup/temat/18/240/2396))
+
+Tourism demand statistics: Data on participation in tourism of the residents of the reporting country.
+How collected? Surveys?
+
+Most of the time, data on domestic and outbound trips (where "outbound tourism" means residents of a country travelling in another country) is collected via sample
+surveys (cf [Annual data on trips of EU residents](https://ec.europa.eu/eurostat/cache/metadata/en/tour_dem_esms.htm) and
+[Tourism_statistics_-_top_destinations](https://ec.europa.eu/eurostat/statistics-explained/index.php/Tourism_statistics_-_top_destinations))
+
+Regulations concerning data collection in turism (hundreds of pages):
+[Glossary:Supply_side_tourism_statistics](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:Supply_side_tourism_statistics)
+and [EU regulation No 692/2011](https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32011R0692)
+
+So now we know what we are dealing with...
+
+## Example nights spent (demand side)
+
+Share of nights spent at EU-28 tourist accommodation by tourists
+travelling outside their own country of residence, 2017 
+[Share of nights spent at EU-28 tourist accommodation by tourists
+travelling outside their own country](http://appsso.eurostat.ec.europa.eu/nui/submitViewTableAction.do)
+
+Country of residence -> Foreign country (estimated data)
+
+| year | 2008    | 2009    |    2010  |     2011 | 2012     | 2013     |     2014 |     2015 |  2016    | 2017  |
+| -----|:-------:| -------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|------:|
+| #    |10173237 | 9609447 | 10064628 | 10620264 | 11876599 | 12471268 | 12992241 | 13757657 | 15579225 | 16705215 |
+
+```{r echo=FALSE, message=F, warning=F}
+library(ggplot2)
+library(ggpubr)
+## line plot with trend (for x as.Date)
+## center title
+
+d <- read.csv("nights_spent_byc.csv", sep = ';',  header=T, na.string="NA");
+yr <- as.Date(paste(d$year, "-01-01", sep=""));
+
+d["yr"] <- yr
+
+p1 <- ggplot(d, aes(x = yr)) +
+ geom_line(aes(y = poland, colour = "poland"), size=2) +
+ ylab(label="beds (number)") +
+ labs(colour = "") +
+ theme(legend.position="top") +
+ ggtitle("nights spent by tourists travelling outside") +
+ theme(plot.title = element_text(hjust = 0.5)) +
+ theme(legend.text=element_text(size=12));
+
+## index base = firstObs
+pl <- diff(d$poland, differences = 1)
+
+d$poland
+
+pl <- append(NA, pl);
+
+d["pl"] <- pl/d$poland * 100
+
+p2 <- ggplot(d, aes(x = yr)) +
+ geom_line(aes(y = pl, colour = "pl"), size=2) +
+ ylab(label="beds (% change)") +
+ labs(colour = "") +
+ theme(legend.position="top") +
+ ggtitle("nights spent by tourists travelling outside") +
+ theme(plot.title = element_text(hjust = 0.5)) +
+ theme(legend.text=element_text(size=12));
+
+ggarrange(p1, p2, ncol = 2, nrow = 1)
+```
+
+to be continued...
+
+
+## Dreadful example: Purchasing Power Parity, inflation
+and international comarison of GDP
+
+** ADD HERE **
+
+## Modern Approach
+
+[czy-ukraincy-wiaza-swoja-przyszlosc](https://selectivv.com/czy-ukraincy-wiaza-swoja-przyszlosc-z-naszym-krajem-najnowsze-badanie-selectivv/)
+
+[Why universities for the
+elderly are booming in China](https://www.economist.com/the-economist-explains/2018/08/16/why-universities-for-the-elderly-are-booming-in-china)
+[yyy](https://polon.nauka.gov.pl/opi/aa/rejestry/szkolnictwo?execution=e4s1)
+
+
+## Measures of central tendency, dispersion and skewness
+(univariate analysis)
+
+The CSV file hotele_caloroczne_PL.csv contains data on number of all-season hotels 
+in every county in Poland. First one has to load the dataset with the read.csv command:
+
+```{r, pl_hotel_data, cache=T}
+d <- read.csv("hotele_caloroczne_PL.csv", sep = ';',  header=T, na.string="NA")
+```
+
+Computing measures of central tendency (with summary and/or fivenum)
+
+```{r, cache = F, dependson = "pl_hotel_data"}
+summary(d)
+fivenum(d$hotele2017)
+```
+
+Computing mean:
+
+```{r, cache = F, dependson = "pl_hotel_data"}
+mean(d$hotele2017)
+```
+
+And dispersion:
+
+```{r, cache = F, dependson = "pl_hotel_data"}
+var(d$hotele2012); var(d$hotele2017)
+sd(d$hotele2012); sd(d$hotele2017)
+```
+
+Second attempt (and more compact output):
+
+```{r, cache = F, dependson = "pl_hotel_data"}
+c(var(d$hotele2012, na.rm=T), var(d$hotele2017, na.rm=T),
+ sd(d$hotele2012, na.rm=T), sd(d$hotele2017, na.rm=T))
+```
+
+BTW:
+
+```{r, cache = F, dependson = "pl_hotel_data"}
+c( mean(d$hotele2012, na.rm=T), mean(d$hotele2017, na.rm=T))
+```
+
+Or more formally. There were `r mean(d$hotele2012, na.rm=T)`
+hotels on the average in every county in Poland in 2012 while
+in 2017 there were `r mean(d$hotele2017, na.rm=T)` hotels.
+
+Interquartile Range aka IQR which is 
+the range from the upper (75%) quartile to the lower (25%) quartile. IQR represents 
+central 50% observations of a population. 
+IQR is a robust measure of dispersion, unaffected by the distribution of data:
+
+```{r, cache = F, dependson = "pl_hotel_data"}
+c( IQR(d$hotele2012, na.rm=T), IQR(d$hotele2017, na.rm=T))
+```
+
+Finally we can equally easilly assess the skewenss:
+
+## Measures of concentration/inequality distribution (univariate analysis)
+
+
+
+
+Some variables by definition are positive (or non-negative):
+income, market share.
+
+[sampling-distribution-of-gini-coefficient](https://www.r-bloggers.com/sampling-distribution-of-gini-coefficient/)
+[income-inequality](https://ourworldindata.org/income-inequality)
+
+## Diversion: R
+
+## Diversion: Rstudio
+
+## Charts (purpose of)
+
+Decoration,
+
+One graph is more effective than another if its quantitative
+information can be decoded more quickly/easily [Robbins 2005]
+
+## Types of charts
+
+Recommended: (ordered) dot plots, bar charts, histograms and kernel
+density estimates,
+multipanel displays (instead of stacked bars multiple line/dot plots)
+scatterplots (two variables)
+
+Not recommended: Pie charts, bubble charts, stacked bar charts,
+
+Bar/line/pie charts introduced by James Playfair in XVIII century.
+Dot plots introduced by Cleveland (1980s).
+Box-plots introduced by Tukey (1970s)
+
+Never use (pseudo) 3D charts for 2D data. Virtually no-one
+can read them
+
+## Pie charts
+
+[Nights spent by non residents](https://ec.europa.eu/eurostat/statistics-explained/index.php/Tourism_statistics#Nights_spent_by_non-residents_in_the_EU-28:_Spain_on_top)
+
+```{r message=F, echo=F, warning=F}
+library(ggplot2)
+library("dplyr")
+library(RColorBrewer)
+library(ggpubr)
+
+## https://www.datanovia.com/en/blog/how-to-create-a-pie-chart-in-r-using-ggplot2/
+df <- data.frame( class=c("Spain", "UK", "Italy", "France", "Greece",
+    "Austria", "Germany", "Croatia", "Portugal", "Netherlands", "Rest28"),
+    n=c(305907462, 213378155, 210658786, 133499991, 89284386, 86044321, 83111219,
+        80176804, 48884842, 44169041, 202635615));
+
+sum.eu <-sum(df$n)
+df["prop"] <- df$n / sum.eu * 100;
+df["txt.prop"] <- sprintf ("%.1f", df$prop);
+
+df <- df %>%
+  arrange(desc(class)) %>%
+  mutate(ypos = cumsum(prop) - 0.5*prop)
+
+mycols <- brewer.pal(13, "Set3")
+
+pc1 <- ggplot(df, aes(x = "", y = prop, fill = class)) +
+  geom_bar(width = 1, stat = "identity", color = "white") +
+  coord_polar("y", start = 0)+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+pc2 <- ggplot(df, aes(x = "", y = prop, fill = class)) +
+  geom_bar(width = 1, stat = "identity", color = "white") +
+  coord_polar("y", start = 0)+
+  geom_text(aes(y = ypos, label = txt.prop), color = "black")+
+  scale_fill_manual(values = mycols) +
+  theme_void()
+
+## dot-plot
+pc3 <- ggplot(df, aes(x = reorder(class, n) )) +
+  geom_point(aes(y = prop, colour = 'prop' ), size=3) +
+  xlab(label="#") + ylab(label="% ") + coord_flip()+
+  ggtitle("Share of...") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+## bar chart
+pc4 <- ggplot(df, aes(x = reorder(class, n), y=prop, fill=prop )) +
+  geom_bar(stat="identity", color = 'blue' ) +
+  xlab(label="#") + ylab(label="% ") +
+  coord_flip()+ ggtitle("Share of...") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+ggarrange(pc1, pc2, pc3, pc4, ncol = 2, nrow = 2)
+```
+
+
+## Dot plots
+
+Jittering: adding random noise to data to avoid overlapping.
+
+## Bar charts
+
+## Histograms and kernel density functions
+
+Histograms show the distribution of a set of data. To draw a histogram
+the numbers (observations) are grouped
+into bins (intervals or classes). There is
+a tradeoff between showing details or showing an overall picture.
+When bin width changes the scale at Y-axis changes as well (more bins less
+observations in each bin).
+
+```{r, cache = F, dependson = "pl_hotel_data"}
+ggplot(d, aes(x = hotele2017)) +
+  geom_histogram(bins = nclass.Sturges(d$hotele2017))
+```
+
+Histograms with binwidth equal to 20,10, 5 and 1 respectively:
+
+```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
+#library(ggpubr)
+p1 <- ggplot(d, aes(x = hotele2017)) +
+  geom_histogram(binwidth = 20)
+p2 <- ggplot(d, aes(x = hotele2017)) +
+  geom_histogram(binwidth = 10)
+p3 <- ggplot(d, aes(x = hotele2017)) +
+  geom_histogram(binwidth = 5)
+p4 <- ggplot(d, aes(x = hotele2017)) +
+  geom_histogram(binwidth = 1)
+
+ggarrange(p1,p2,p3,p4)
+```
+
+Kernel density functions
+
+```{r, cache = F, echo=T, dependson = "pl_hotel_data"}
+ggplot(data=d) + geom_density(aes(x=hotele2017))
+```
+
+```{r, cache = F, echo=T, dependson = "pl_hotel_data"}
+p1 <- ggplot(data=d) + geom_density(aes(x=hotele2017), adjust=0.25)
+p2 <- ggplot(data=d) + geom_density(aes(x=hotele2017), adjust=1.0)
+p3 <- ggplot(data=d) + geom_density(aes(x=hotele2017), adjust=2.0)
+p4 <- ggplot(data=d) + geom_density(aes(x=hotele2017), adjust=8.0)
+ggarrange(p1,p2,p3,p4)
+```
+
+
+## Comparing distributions box-plots vs multiple histograms
+
+Box-plots are much better than histograms for comparing distributions
+of more than one data sets.
+
+Construction of a (typical) box-plot: The middle bar is a median. Top/bottom
+bars of the rectangle shows the IQR (interquartille range is 1st and 3rd\
+quartille), the fanciful bars above/below rectangle called whiskers
+(google: whiskers mustache :-) are 1,5 times the IQR (or minimu/maximum if
+those values are  less than plus/minus 1,5 IQR.
+The symbols above/below whiskers (usually open circles)
+are outliers (non typical/extreme values)
+
+Note the trick: outliers are defined not as (for example) top/botom
+1% fraction of values (every distribution would has outliers in such a case)
+but as values less/more than Me - 1,5IQR (distributions with medium
+variablity would not have outliers)
+
+Example: age of Nobel-prize 
+winners (cf [The Nobel Prize API Developer Hub](https://nobelprize.readme.io/))
+
+```{r, cache = F, echo=T }
+d <- read.csv("nobel_laureates3.csv", sep = ';', dec = ",",  header=T, na.string="NA");
+
+ggplot(d, aes(x=category, y=age, fill=category)) + geom_boxplot() + ylab("years") + xlab("");
+```
+
+Multiple histograms are too detailed (binwidth=5). It is impossible for example to establish
+which category has the youngest (on the average) laureate, or which category 
+has an oldest one (economics 
+and literature are candidates, but due to multimodality of literature laureates
+distribution it is difficult to assess this for sure...)
+
+```{r, cache = F, echo=T }
+ggplot(d, aes(x=age, fill=category)) + geom_histogram(binwidth=5) +
+    facet_grid(category ~ .)
+```
+
+## Scatter-plots
+
+A scatter-plot (aka scatter diagrams, xyplot) is a basic
+form used for two (quantitive) variables.
+
+To see the relationship between variables, a line is can be fitted.
+Least square (LS) line which assumes linear relationship
+between variables, is fitted by minimizing the sum of squares of the residuals
+(residual is the difference between
+a data-point and a relevant line-point ie a point computed from the formula
+y = a +bx where x is the value of the x-axis variable.)
+
+Alternatively loess curve can be used which do not assumes linearity.
+
+## Scales
+
+Logarithmic scale makes it possible to plot values with too
+wide range for a linear scale. Base 10 logarithms `squeeze' the numbers
+more than base 2 logarithms (log10(100)=2 wile log2(100)=6.64.
+Moreover is the original scale contains multiplications of 10 use
+log10 to get `nice' log-scale while it
+contains multiplications of 2 use log2.
+
+Logarithms transforms additive scale to `multiplicative' one. Example (Nobel prize again):
+
+```{r, cache = F, echo=T }
+dA <- read.csv("nobel_laureates3.csv", sep = ';', dec = ",",  header=T, na.string="NA");
+nrow(dA)
+dS <-  subset(dA, (! bornCountryCode == "" )) ## by country of birth
+nrow(dS) ## how many
+```
+
+aggregate by bornCountryCode
+
+```{r, cache = F, echo=F }
+u <- table(dS$bornCountryCode)
+uf <- as.data.frame(u)
+```
+Finally plot the resulting data using various Y-axis scales (arithmetic, log2 and log10)
+
+```{r, cache = F, echo=F }
+names(uf)[1] = 'country'
+
+lFreq <- log2(uf$Freq)
+uf["lfreq"] <- lFreq
+pc3 <- ggplot(uf, aes(x = reorder(country, Freq) )) +
+  geom_point(aes(y = Freq, colour = 'Freq' ), size=1) +
+  xlab(label="cc") + ylab(label="n ") + coord_flip()+
+  ggtitle("Number of Nobel laureates by Country") +
+  theme(axis.text = element_text(size = 7)) +
+  theme(plot.title = element_text(hjust = 0.5))
+pc4 <- ggplot(uf, aes(x = reorder(country, lfreq) )) +
+  geom_point(aes(y = lfreq, colour = 'lfreq' ), size=1) +
+  xlab(label="cc") + ylab(label="log(n) ") + coord_flip()+
+  ggtitle("Number of Nobel laureates by Country") +
+  theme(axis.text = element_text(size = 7)) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+llFreq <- log10(uf$Freq)
+uf["llfreq"] <- llFreq
+
+pc5 <- ggplot(uf, aes(x = reorder(country, llfreq) )) +
+  geom_point(aes(y = llfreq, colour = 'lfreq' ), size=1) +
+  xlab(label="cc") + ylab(label="log(n) ") + coord_flip()+
+  ggtitle("Number of Nobel laureates by Country") +
+  theme(axis.text = element_text(size = 7)) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+ggarrange(pc3, pc4, pc5, ncol = 3, nrow = 1);
+```
+
+
+## Graphic perception tasks
+
+Position along common scale
+Position along common but nonaligned scales
+Length
+Angle (slope)
+Area
+Volume
+Color (hue), Color (saturation), Color (density of black)
+
+Angle judgement is not precise. Acute angles are underestimated
+while obtuse angles (greater than 90) are  overestimated.
+
+Area judgement is biased as well. It is impossible to distinguish
+small differences in area, while quite easy when the same date
+is plotted along common scale
+
+The most accurate of graphic task is 
+positioning along common scale
+
+## General design rules
+
+** ADD **
+
+## Banking to 45
+
+The ratio between the width and the height of a rectangle is called
+its aspect ratio.
+
+The aspect ratio describes the area that is occupied by the data in
+the chart. A change in aspect ratio changes the perception
+of the graph. The question is which aspect ratio is the best.
+
+We can recognize change  most easily if absolute slopes
+equals to 45 degree angle on the graph. It is much
+harder to see change if the curves are nearly horizontal/vertical.
+The idea (Cleveland, 1988) behind banking is therefore to adjust
+the aspect ratio of the entire plot in such a way that most slopes are
+at an approximate 45 degree angle.
+
+Setting the aspect ratio so that the average of the values of the
+orientations is 45 degrees is called "banking the average
+orientation to 45 degrees".
+
+Setting the aspect ratio so that the weighted mean of line segments
+(weighted by segments' length is approx 45 degrees is called average
+weighted orientation method (to 45 degrees).
+
+## Diversion: R (making charts)
+
+## The lie factor and data-ink ratio [Tufte]
+
+## Example: education system in Poland
+
+
+
+## Elementary spatial analysis (Heat maps/tematic maps)
+
+Geocoding and reversegecoding
+
+## Diversion: tools for geocoding and reversegecoding 
+
+## Diversion: tools for building (heat/tematic maps)
+
+QGis
+
+## Example: Poland (population, incomes, distribution of)
+
+## More examples of spatial charts
+
+## Summary: bad graphics examples
+
+## Bivariate analysis
+
+## Example: tourist vs industry vs education (in Poland)
+
+## Example:
+
+## Timeseries analysis
+
+## Bad example: tourists at Malbork castle
+[The determinants of the tourist traffic
+ in the castle's museum of Malbork](http://www.ojs.ukw.edu.pl/index.php/johs/article/view/4119/pdf)
+
+## Elementary spatial analysis
+
+## Example: industry concentration (in Poland)
+
+## Information presentation by Edward Tufte
+
+## Tufte's famous slide
+
+## Resources
+
+[cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+[QGIS tutorials](https://www.qgistutorials.com/en/docs/)
+[gis.stackexchange.com](https://gis.stackexchange.com/)
+
+## Data banks
+
+## Tourism cd
+[nui](http://appsso.eurostat.ec.europa.eu/nui/submitViewTableAction.do)
+
+## Kaggle (Coffee production/consumption)
+[icos-crop-data](https://www.kaggle.com/sbajew/icos-crop-data)
+[exploring-coffee-production-and-consumption](https://www.kaggle.com/sbajew/exploring-coffee-production-and-consumption)
+[ico-coffee-crop-data-data-wrangling](https://www.kaggle.com/sbajew/ico-coffee-crop-data-data-wrangling)
+
+## Varia
+[hours-worked](https://data.oecd.org/emp/hours-worked.htm)
+
+## New practice [recap]
+
+Introduce reproducible research approach
+
+Use real (big and dirty) data sets.
+
+Introduce some programming (Programing or using mouse?)
+
+Introduce some new tools (R/Rstudio, QGIS, Github)
+
+## Diversion: Github
+
+## New Tools (hipster part)
+
+R/Rstudio for computing and data visualization
+
+Github for enhancing team work
+
+markdown for reproducible research
+
+## More Data banks
+
+[UK immigration-statistics](https://www.gov.uk/government/statistics/immigration-statistics-year-ending-september-2018-data-tables)
+
+## Example educational resources
+
+https://git.generalassemb.ly/briancwq/classes/blob/master/week-01/lessons/python-descriptive_statistics_numpy-lesson-master/archive/LESSON.md
+
+[ukraine-deputies](https://www.kaggle.com/piterfm/ukraine-deputies#ukraine_deputies.csv)
+
+## Questions
+
+## Thanks
