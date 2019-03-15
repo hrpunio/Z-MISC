@@ -1,0 +1,11 @@
+ https://nominatim.openstreetmap.org/search?<params>
+ https://nominatim.openstreetmap.org/search/<query>?<params>
+
+
+format=[html|xml|json|jsonv2]
+county=<county>
+
+ https://nominatim.openstreetmap.org/reverse?format=xml&lat=52.548&lon=18&addressdetails=1
+
+
+http://open.mapquestapi.com/geocoding/v1/reverse?key=KEY&location
