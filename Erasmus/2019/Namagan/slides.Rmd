@@ -16,17 +16,17 @@ BTW in Poland born-in-sunday means work-shy (ie. lazy) person (so you know now f
 BTW by pure statistics $1/7 \approx 14$% of the population is work-shy:-)
 
 I graduated economy long time ago and teached statistics and information systems (mainly).
-I am a big fan of open source software and know a few system including Linux and LaTeX.
+I am a big fan of open source software (or OSS) and I knew a few OSS systems including Linux and LaTeX.
 And of course R which I am about to show you in a while.
 
-![](./tp.jpg)
+![](./TP-in-BMC-outfit.jpg)
 
 My hobby is Road Cycling and History. A I am also a amateur photographer.
 (cf [tprzechlewski@flickr](https://www.flickr.com/photos/tprzechlewski/))
 
 ## Agenda
 
-Statistics (nothing spectacular, just classical EDA)
+Statistics (nothing spectacular, just classical EDA, no (heavy) math, relax)
 
 Statistical software (modern, non-standard or hipster #youcall)
 
@@ -345,7 +345,7 @@ information can be decoded more quickly/easily [Robbins 2005]
 ## Types of charts
 
 Recommended: (ordered) dot plots, bar charts, histograms and kernel
-density estimates,
+density estimates, stripcharts,
 multipanel displays (instead of stacked bars multiple line/dot plots)
 scatterplots (two variables)
 
@@ -420,6 +420,111 @@ ggarrange(pc1, pc2, pc3, pc4, ncol = 2, nrow = 2)
 Jittering: adding random noise to data to avoid overlapping.
 
 ## Bar charts
+
+## What, when and where
+
+Before we continue with statistical graphicsa short 2 slides diversion 
+on geocode standards used in statistics. 
+
+No doubt in every reliable survey the population has to be precisely defined ie 
+3 dimensions of every surveyed unit should be fixed:
+definition (*what*), time (*when* measured), space (*where*)...
+
+I always repet to my students: if you look at some data (in the media for example), start
+from establishing if you know *what*, *when* and *where*. If no information (or 
+*reliable link*--called source--to information) 
+is provided
+on any of the fixed dimensions of data, treat this data as rubbish and do not waste time to use/analyse it.
+
+Further dissemination of such defective data should be subjected to publicly prosecuted (joke)
+
+I tried to show you already that *what* is complicated and often highly unreliable/arbitrary
+(the nature of the phenomenon or/and measurement difficulties).
+
+*What* dimension much more simpler due to universal standard, ie. time. 
+You gather data or for a certain moment (how many hotels
+are in use in 31st December 2018) or for certain period of time (how many beds were sold in these hotels in 3rd quarter of 2018). 
+
+*Where* dimensions in turn is usually based on administrative or statistical (geographical) units
+(country, state/province, county, community). But contrary to time dimension
+there is no universal or globally-accepted standard for *geostatistical* units.
+Usually such a standard is based on administrative system which is country-dependent.
+
+The administrative division of Poland since 1999 has 
+been based on three levels of subdivision (cf [Administrative divisions of Poland](https://en.wikipedia.org/wiki/Administrative_divisions_of_Poland). 
+In 2001 as Poland became a member of European Union, EU regulations are part of national law system.
+
+EU regulates everything, statistics included.
+
+Conclusion: The pigs had to expend enormous labours every day upon mysterious things called "files," "reports,"
+"minutes," and "memoranda." These were large sheets of paper which had to be closely covered with writing,
+and as soon as they were so covered, they were burnt in the furnace (George Orwell, Animal Farm)
+
+## NUTS and TERYT
+
+The Nomenclature of Territorial Units for Statistics (NUTS)
+is a geocode standard for referencing the subdivisions of countries for statistical purposes.
+The standard is developed and regulated by the European Union, and thus only covers the member states of the EU in detail (cf [NUTS](https://en.wikipedia.org/wiki/Nomenclature_of_Territorial_Units_for_Statistics))
+
+NUTS *standard* was revised several times (on the average every 4 years :-)), so there is even a page 
+at ec.europa.eu domain dedicated to NUTS (short) history (cf 
+[NUTS history](https://ec.europa.eu/eurostat/documents/345175/501899/Nuts-history))
+
+![](./NUTS-history.jpg)
+
+NUTS1 (level) -- macroregion, NUTS2 -- state, NUTS3 -- county
+We would like to plot a chart showing number of hotels.
+
+Poland is divided into 16 states (NUTS2) and 380 counties NUTS3 which are equal
+to administrative units. So on the average there ar 23.75 counties per state.
+NUTS1 level is only for statistical purposes (but regions are in fact
+distinct due to history, economics, natural-conditions, cultural factors etc... )
+
+There is a relevant and interesting page by GUS (Main Statistical Office or Główny Urząd Statystyczny),
+but unfortunately in Polish (use google translate :-) in case you are interested or mail me)
+(cf [Klasyfikacja NUTS w Polsce](https://stat.gov.pl/statystyka-regionalna/jednostki-terytorialne/klasyfikacja-nuts/klasyfikacja-nuts-w-polsce/)
+
+![](./polska_nuts2-2016.png)
+
+The above map shows 7 macroregions (NUT1) and 16 provinces (NUTS2).
+BTW provice is Polish is "prowicja" (due to both are from Latin) but actually 
+Polish administrative provice is called "województwo", from "wodzić" -- ie commanding (the armed 
+troops in this context).  This is an old term/custom from the 14th century, 
+where Poland was divided into provinces (every provice
+ruled by a "wojewoda" ie chief of that province). More can be found
+at Wikipedia (cf [Administrative divisions of Poland](https://en.wikipedia.org/wiki/Administrative_divisions_of_Poland)
+
+NUTS3 consists of 380 counties (called "powiat"). In ancient Poland powiat was called
+"starostwo" and the head of a "starostwo was called "starosta". "Stary" means Old, so
+"starosta" is an old (and thus wise) person. 
+BTW the head of powiat is "starosta" as 600 years ago:-)
+
+![](./polska_nuts3-2016_r.png)
+
+There is no NUT4 level but there is 3rd level of Polish administration used 
+by GUS (Main Statistical Office). This 3rd level is called "gmina" (community). 
+
+There are (approximately) 2750 communities in Poland. 
+As Poland population is 38,5 mln and the area equals 312,7
+sq kilometers (120 persons per 1 sqkm) on the average each powiat has 820 sqkm and each community
+has 113.5 sqkm or approximately 100 thousand persons per "powiat and 14 thousand per "gmina".
+
+TERYT is a Polish NUTS (developed some 50 years ago). It is complex system which includes
+identification of administrative units. Every unit has (up to) a 7-digit id number: wwppggt
+where ww = "województwo" id, pp = "powiat" id, gg = "gmina" id and "t" decodes type-of-community
+(rural, municipal or mixed). Higher units has trailing zeros for irrelevant part of id, so
+14 or 1400000 means the same; as well as 1205 and 1205000. Six numbers is enough to identify
+a community (approx 2750 units).
+
+So you are now experts on administrative division of Poland, and we can
+go back to statistical charts...
+
+## Strip charts
+
+A strip chart (strip plot) shows *the distribution* of data points along
+a numerical axis.These plots are suitable compared 
+to box plots when sample sizes are small (because preserve more information about the data).
+
 
 ## Histograms and kernel density functions
 
@@ -598,6 +703,11 @@ positioning along common scale
 
 ## General design rules
 
+To visualize n-dimensional data do not use more dimensions than n.
+
+Always include 0 in numerical axes
+
+
 ** ADD **
 
 ## Banking to 45
@@ -623,6 +733,8 @@ orientation to 45 degrees".
 Setting the aspect ratio so that the weighted mean of line segments
 (weighted by segments' length is approx 45 degrees is called average
 weighted orientation method (to 45 degrees).
+
+*** Example ***
 
 ## Diversion: R (making charts)
 
@@ -687,15 +799,28 @@ QGis
 ## Varia
 [hours-worked](https://data.oecd.org/emp/hours-worked.htm)
 
-## New practice [recap]
+## Reproducible research
 
-Introduce reproducible research approach
+So you probably still wander why I am punishing myself with using such a odd system. The
+most important argument why I will present momentarily and it concerns the basic
+approach (philospohy if one has to be phatetic) 
+of doing statistical analysis. 
 
-Use real (big and dirty) data sets.
+This mode (or concept) is called Reproducible Research (RR in short).
 
-Introduce some programming (Programing or using mouse?)
+Serious statistical analysis is not one-off job. There is a *value-chain* as well as 
+a *life cycle* of statistical analysis. *Value chain* means that there are
+distinct stages while *life cycle* that the same data/models are used for years and
+most statistical analysis do not start from the scrach but are based on data from 
+the past augmented with new data. 
+The problem is that the new data and model modifications should be 
+in-sync with the past. 
+ 
+The make the problem worse, serious statistics should be also
+in-sync with the work of others (to ease or to make 
+possible any meaningful (international) comparisons for example)
 
-Introduce some new tools (R/Rstudio, QGIS, Github)
+
 
 ## Diversion: Github
 
@@ -706,6 +831,17 @@ R/Rstudio for computing and data visualization
 Github for enhancing team work
 
 markdown for reproducible research
+
+## New practice [recap]
+
+* Introduce reproducible research approach
+
+* Use real (big and dirty) data sets.
+
+* Introduce some programming (Programing or using mouse?)
+
+* Introduce some new tools (R/Rstudio, QGIS, Github)
+
 
 ## More Data banks
 
