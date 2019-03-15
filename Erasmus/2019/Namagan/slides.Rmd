@@ -65,23 +65,37 @@ Conclusion: less theory, more pratice and common sense.
 
 ## Learnig curve comparison
 
+![](./R_excel_LC.png)
+
+
 ## Learning statistic to social-science studies in Poland
 
 Typically a statistical course for undergraduate students
 in social sciences in Poland contains:
-descriptive statistics for one variable,
-descriptive methods for an association of two variables
-elementary time series analysis (moving averages,
-linear trend/seasonality)
+
+* descriptive statistics for one variable,
+
+* descriptive methods for an association of two variables
+
+* elementary time series analysis (moving averages, linear trend/seasonality)
+
+* interference/probablity calculus 
+
 Interference/probablity calculus is lectured marginally or omitted
-as well as
-graphical methods and information visualization.
+as well as graphical methods and information visualization.
 
-Oversimplistic 'value chain' of statistical analysis
+Students works with "clean" one-off (small) data and the emphasis is put on methods/theory
+while organization of data collection and processing of data into statistical information 
+by a (local) government institution and/or international organisation is usually omitted.
+In result students are unaware how the data they use in every day life are created.
 
-model/description -> interpretation
+![](./SAnalasis0.png)
 
-raw data -> consistent data -> results -> publishing
+This oversimplistic three-stage process should be replaced by a 'value chain' 
+of statistical analysis:
+
+![](./SAnalasis1.png)
+
 
 ## Example: Full Time Equivalence (FTE)
 
@@ -207,8 +221,8 @@ Country of residence -> Foreign country (estimated data)
 ```{r echo=FALSE, message=F, warning=F}
 library(ggplot2)
 library(ggpubr)
-## line plot with trend (for x as.Date)
-## center title
+# line plot with trend (for x as.Date)
+# center title
 
 d <- read.csv("nights_spent_byc.csv", sep = ';',  header=T, na.string="NA");
 yr <- as.Date(paste(d$year, "-01-01", sep=""));
@@ -224,7 +238,7 @@ p1 <- ggplot(d, aes(x = yr)) +
  theme(plot.title = element_text(hjust = 0.5)) +
  theme(legend.text=element_text(size=12));
 
-## index base = firstObs
+# index base = firstObs
 pl <- diff(d$poland, differences = 1)
 
 d$poland
@@ -251,16 +265,7 @@ to be continued...
 ## Dreadful example: Purchasing Power Parity, inflation
 and international comarison of GDP
 
-** ADD HERE **
-
-## Modern Approach
-
-[czy-ukraincy-wiaza-swoja-przyszlosc](https://selectivv.com/czy-ukraincy-wiaza-swoja-przyszlosc-z-naszym-krajem-najnowsze-badanie-selectivv/)
-
-[Why universities for the
-elderly are booming in China](https://www.economist.com/the-economist-explains/2018/08/16/why-universities-for-the-elderly-are-booming-in-china)
-[yyy](https://polon.nauka.gov.pl/opi/aa/rejestry/szkolnictwo?execution=e4s1)
-
+** ADD MORE STUFF HERE **
 
 ## Measures of central tendency, dispersion and skewness
 (univariate analysis)
@@ -323,40 +328,82 @@ Finally we can equally easilly assess the skewenss:
 ## Measures of concentration/inequality distribution (univariate analysis)
 
 
-
-
 Some variables by definition are positive (or non-negative):
 income, market share.
 
 [sampling-distribution-of-gini-coefficient](https://www.r-bloggers.com/sampling-distribution-of-gini-coefficient/)
 [income-inequality](https://ourworldindata.org/income-inequality)
 
-## Diversion: R
+*** ADD MORE STUFF HERE ***
 
-## Diversion: Rstudio
+## Diversion: R and Rstudio
+
+R is both *programming language*  for statistical computing and graphics and 
+a software (ie application) to execute programms written in R.
+R was developed in mid 90s  at the University of Auckland 
+(New Zealand).
+
+Since then R has become one of the dominant software environments for data analysis and is used by a variety of scientific disiplines.
+
+BTW why it is called so strange (R)? Long time ago it was popular to use short names for computer languags
+(C for example). At AT&T Bell Labs (John Chambers) in mid 70s a language oriented towards statistical
+computing was developed and called S (from Statistics). R is one letter before S in an alphabet.
+
+Rstudio is an *environment* through which to use R. In Rstudio one can simultaneously write code, execute
+code it, manage data, get help, view plots. Rstudio is a commercial product distributed
+under dual-license system by RStudio, Inc. Key developer of RStudio is Hadley Wickham 
+another brilliant New Zealander (cf [Hadley Wickham](https://en.wikipedia.org/wiki/Hadley_Wickham) )
+
+Microsoft invest heavily into R development recently. It bought Revolution Analytics a key 
+developer of R and provider of commercial versions of the system. With MS support the system
+is expected to gain more popularity (for example 
+by integrating it with popular MS products)
 
 ## Charts (purpose of)
 
-Decoration,
+Statistical charts can be plotted for the following three purposes:
 
-One graph is more effective than another if its quantitative
+* Decoration (to attract somebodys' attention, document without pictures looks dull,
+color pictures are better than back-white ones, fanciful drawings are better than simple ones,
+*form is the king and content does not matter*)
+
+* Explanation (to better explain some phenomenon to somebody. It is claimed that a picture is worth
+thousand of words in this context)
+
+* Exploration (looking for data patterns at the explorator stage of data analysis)
+
+Note: It is often recommended by some researchers 
+to use charts at data cleaning stage of statistical analysis. I do not recommend it. Data cleaning can
+be automated and should not relay nor on manual work nor on visual inspection. 
+Using programs to check data 
+is more efficient and reliable procedure. It is also 100% replicable contrary to visual inspection.
+
+A visual-art designer not statistician is a right person for the 1st purpose. I am not an art-designer
+so I will not tell you how to prepare eye-catching pictures. I am a statistician and I will
+concentrate on *effictive* graphical methods for statistical explanation/exploration. 
+And by *effective* I mean that one (graphical) method  is more effective than another if its quantitative
 information can be decoded more quickly/easily [Robbins 2005]
 
 ## Types of charts
 
-Recommended: (ordered) dot plots, bar charts, histograms and kernel
+Some graphs are better than others:
+
+* Recommended: (ordered) dot plots, bar charts, histograms and kernel
 density estimates, stripcharts,
 multipanel displays (instead of stacked bars multiple line/dot plots)
 scatterplots (two variables)
 
-Not recommended: Pie charts, bubble charts, stacked bar charts,
+* Not recommended: Pie charts, bubble charts, stacked bar charts,
 
-Bar/line/pie charts introduced by James Playfair in XVIII century.
+Bar/line/pie charts introduced by william Playfair in XVIII century.
 Dot plots introduced by Cleveland (1980s).
 Box-plots introduced by Tukey (1970s)
 
-Never use (pseudo) 3D charts for 2D data. Virtually no-one
-can read them
+![](./WP.png)
+
+More Playfair's charts can be found via google or at
+[](http://www.math.usu.edu/symanzik/papers/2009_cost/editorial.html)
+
 
 ## Pie charts
 
@@ -368,7 +415,7 @@ library("dplyr")
 library(RColorBrewer)
 library(ggpubr)
 
-## https://www.datanovia.com/en/blog/how-to-create-a-pie-chart-in-r-using-ggplot2/
+# https://www.datanovia.com/en/blog/how-to-create-a-pie-chart-in-r-using-ggplot2/
 df <- data.frame( class=c("Spain", "UK", "Italy", "France", "Greece",
     "Austria", "Germany", "Croatia", "Portugal", "Netherlands", "Rest28"),
     n=c(305907462, 213378155, 210658786, 133499991, 89284386, 86044321, 83111219,
@@ -525,6 +572,41 @@ A strip chart (strip plot) shows *the distribution* of data points along
 a numerical axis.These plots are suitable compared 
 to box plots when sample sizes are small (because preserve more information about the data).
 
+Example: average number of hotels in powiat by województwo
+
+```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
+d <- read.csv("powiaty_wskazniki_woj_regiony.csv", sep = ';',  header=T, na.string="NA");
+d$wteryt <- as.factor(d$wteryt)
+
+p3<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.05), cex=1.2)
+p4<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.0), cex=1.2)
+ggarrange(p4,p3, ncol = 2, nrow = 1)
+```
+
+More jitter:
+
+```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
+
+p2<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.1), cex=1.2)
+
+p1<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.2), cex=1.2)
+ggarrange(p2,p1, ncol = 2, nrow = 1)
+```
+
+Boxplots are better:
+
+```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
+p5 <- ggplot(d, aes(x=wteryt, y=hotele2017, fill=wteryt)) + geom_boxplot() + ylab("#") + xlab("");
+
+p6 <- ggplot(d, aes(x=wteryt, y=hotele2017, fill=wteryt)) + geom_boxplot(outlier.shape=NA) + ylab("#") + xlab("") +
+      coord_cartesian(ylim = c(0, 25)) +
+      theme(legend.position="none")
+ggarrange(p5,p6,ncol = 2, nrow = 1)
+```
 
 ## Histograms and kernel density functions
 
@@ -637,8 +719,8 @@ Logarithms transforms additive scale to `multiplicative' one. Example (Nobel pri
 ```{r, cache = F, echo=T }
 dA <- read.csv("nobel_laureates3.csv", sep = ';', dec = ",",  header=T, na.string="NA");
 nrow(dA)
-dS <-  subset(dA, (! bornCountryCode == "" )) ## by country of birth
-nrow(dS) ## how many
+dS <-  subset(dA, (! bornCountryCode == "" )) # by country of birth
+nrow(dS) # how many
 ```
 
 aggregate by bornCountryCode
@@ -683,13 +765,21 @@ ggarrange(pc3, pc4, pc5, ncol = 3, nrow = 1);
 
 ## Graphic perception tasks
 
-Position along common scale
-Position along common but nonaligned scales
-Length
-Angle (slope)
-Area
-Volume
-Color (hue), Color (saturation), Color (density of black)
+From the best to the worst:
+
+* Position along common scale
+
+* Position along common but nonaligned scales
+
+* Length
+
+* Angle (slope)
+
+* Area
+
+* Volume
+
+* Color (hue), Color (saturation), Color (density of black)
 
 Angle judgement is not precise. Acute angles are underestimated
 while obtuse angles (greater than 90) are  overestimated.
@@ -703,9 +793,14 @@ positioning along common scale
 
 ## General design rules
 
-To visualize n-dimensional data do not use more dimensions than n.
-
 Always include 0 in numerical axes
+
+Never use more graphic feature than your data set has dimensions.
+For univariate analysis use length or color not both for example.
+(Well there are rare excepions to this rule see example below)
+
+Pseudo 3D charts for 2D data should be forbidden as well and without
+any exception. Virtually no-one can read them. 
 
 
 ** ADD **
@@ -769,6 +864,33 @@ QGis
 ## Timeseries analysis
 
 ## Bad example: tourists at Malbork castle
+
+First short explanation about the subject of the analysis ie
+famous Castle of the Teutonic Order in Malbork which is enlisted at UNESCO heritige list
+(cf [UNESCO heritige list](https://whc.unesco.org/en/syndication) ):
+
+Several religious military orders were formed in the Holy Land during the Crusades
+Templars, Hospitallers, Teutonic Knights
+
+The Teutonic Knights or the Teutonic Order of the Hospital of St. Mary
+in Jerusalem, were known in Poland as *Krzyżacy* on account of the black
+cross they wore on their white coats. 
+
+Established in 1190 to protect
+German pilgrims in the Holy Land, the order was later transformed in
+order to fight heretics.
+
+In 1226 the Teutonic Knights came to Poland, invited by
+Duke Konrad I of Mazovia to fight with the annoying pagan Prussian tribes
+invading Poland from time-to-tme from the north.
+Teutonic Knights conquered Prussia, exterminated the locals and founded a powerful 
+state with Malbork (Marienburg or Mary's castle in German) as its capital.
+
+BTW: Kwidzyn in German is called Marienwerder (Mary's meadow) 
+and there were a lot more places named Marien-something  (as Marien is St Mary in German)
+
+BTW2: There is about 40km from Kwidzyn to Malbork :-)
+
 [The determinants of the tourist traffic
  in the castle's museum of Malbork](http://www.ojs.ukw.edu.pl/index.php/johs/article/view/4119/pdf)
 
@@ -799,7 +921,7 @@ QGis
 ## Varia
 [hours-worked](https://data.oecd.org/emp/hours-worked.htm)
 
-## Reproducible research
+## Sorry but why use all this strange stuff at all?
 
 So you probably still wander why I am punishing myself with using such a odd system. The
 most important argument why I will present momentarily and it concerns the basic
@@ -820,7 +942,124 @@ The make the problem worse, serious statistics should be also
 in-sync with the work of others (to ease or to make 
 possible any meaningful (international) comparisons for example)
 
+## Reproducible research or how to make statistical computations more meaningfu
+    
+Abandoning the habit of secrecy in favor of process transparency and
+peer review was the crucial step by which alchemy became chemistry.
+Eric S.~Raymond, E.~S. The art of UNIX programming: Addison-Wesley.
 
+Replicability vs Reproducibility
+
+Hot topic: google: reproducible research = 158000
+
+*Replicability*: independent experiment targetting the same question
+will produce a result consistent with the original study.
+  
+*Reproducibility*: ability to repeat
+the experiment with exactly the same outcome as
+originally reported [description of method/code/data is needed to do so].
+
+Computational science is facing a~credibility crisis: it's impossible
+to verify most of the computational results presented at conferences
+and in papers today. (Donoho D. et al 2009)
+
+## Australopithecus (Current practices)
+
+* Enter data in Excel/OOCalc to clean and/or make explanatory analysis.
+
+Use Excel for data cleaning & descriptive statistics
+Excel handles missing data inconsistently and sometimes incorrectly
+Many common functions are poor or missing in Excel
+
+* Import data from Spreadsheet into SPSS/SAS/Stata for serious analysis
+
+Use SPSS/SAS/Stata in point-and-click mode to run serious
+statistical analyses.
+
+* Prepare report/paper: copy and paste output to Word/OpenOffice, add
+description.
+
+* Send to publisher (repeat 1--4 if returned for revision).
+  
+Problems
+
+Tedious/time-wasting/costly.
+
+Even small data/method change requires
+extensive recomputation effort/careful report/paper revision and update.
+
+Error-prone: difficult to record/remember a 'click history'.
+
+Famous example: Reinhart and Rogoff controversy
+Countries very high GDP--debt ratio suffer from low growth. However the study
+suffers serious but easy identifiable flaws which were discovered when
+RR published the dataset they used in their analysis
+(cf [Growth_in_a_Time_of_Debt](https://en.wikipedia.org/wiki/Growth_in_a_Time_of_Debt))
+  
+## Homo habilis (Enhanced current practices)
+
+* Abandon spreadsheets.
+
+* Abandon point-and-click mode. Use statistical scripting
+languages and run program/scripts.
+
+Benefits
+
+Improved: reliability, transparency, automation, maintanability.
+Lower costs (in the long run).
+
+Solves 1--2 but not 3--4.
+
+Problems: Steeper learning curve.
+Perhaps higher costs in short run.
+Duplication of effort (or mess if scripts/programs are poorly documented).
+
+## Homo Erectus (Literate statistical programming)
+
+Literate programming concept:
+Code and description in one document. Create software as
+works of literature, by embedding source code inside
+descriptive text, rather than the reverse (as in most programming
+languages), in an order that is convenient for human readers.
+
+A program is like a WEB tangled and weaved (turned into a~document),
+with relations and connections in the program parts.  We express a
+program as a *web of ideas*.  WEB is a combination of
+-- a document formatting language and -- a program language.
+
+General idea of Literate statistical programming mimics Knuth's WEB system.
+
+Statistical computing code is embedded inside descriptive
+text. Literate statistical program is weaved (turned) into
+report/paper by executing code and inserting the results
+obtained. data/method changes.
+
+Solves 1--4.
+
+## LSP: Benefits/Problems/Tools
+
+* Reliability: Easier to find/fix bugs.
+The results produced will not change when recomputed (in theory at least).
+
+* Efficiency: Reuse allows to avoid duplication of effort (Payoff in the long run.)
+
+* Transparency: increased citation rate, broader impact, improved institutional memory
+
+* Institutional memory is a collective set of facts, concepts, experiences and know-how 
+held by a group of people. 
+
+* Flexibility: When you don't 'point-and-click' you gain many new analytic options.
+
+Problems of LSP: Many incl. costs and learning curve
+
+Tools:
+
+* Document formatting language: LaTeX (not recommended) or Markdown (or
+many others, ie. orgmode).  LaTeX is a~word processor/a~document
+markup language.  Markdown: lightweight document markup language based
+on email text formatting. Easy to write, read and publish as-is.
+
+* Program language: R
 
 ## Diversion: Github
 
