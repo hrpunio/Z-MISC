@@ -2,6 +2,11 @@
 title: "Statistics without spreadsheet"
 author: "Tomasz Przechlewski"
 date: "March, 2019"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+  word_document: default
 ---
 
 ## Who am I
@@ -19,7 +24,7 @@ I graduated economy long time ago and teached statistics and information systems
 I am a big fan of open source software (or OSS) and I knew a few OSS systems including Linux and LaTeX.
 And of course R which I am about to show you in a while.
 
-![](./TP-in-BMC-outfit.jpg)
+![](./TPphoto.jpg)
 
 My hobby is Road Cycling and History. A I am also a amateur photographer.
 (cf [tprzechlewski@flickr](https://www.flickr.com/photos/tprzechlewski/))
@@ -32,7 +37,10 @@ Statistical software (modern, non-standard or hipster #youcall)
 
 Poland (via statistical examples)
 
-## Three components of Statistics
+## How statistics is taught to students at social-science departments (at least in Poland)
+
+Three components of Statistics:
+
 Theory (models) + Tools (programs) + Practice (real data)
 
 Undergraduate courses in social sciences in Poland
@@ -40,64 +48,63 @@ concentrate on theory, use Spreadsheet as an universal computing tool
 Office-like editor (MS Word/OO Writes)
 as an universal publishing tool. Students works with artificial (clean)
 and small data sets thus are unaware of problems related to
-applying theory to practice.
+applying theory to practice. 
+The workflow is shown in the following diagram:
 
-It is claimed that the above scenario is optimal. More advanced
+![](./SAnalasis3.png)
+
+
+It is claimed that the above scenario is the best one. More advanced
 tools would be too difficult (and time consuming) to be acquinted
 to by students, thus distracting them
 from the main subject of the course, ie statistical methods. 
 
+## How statistics should be taught to students (in my opinion at least)
+
 Office sofware has limits. Spreadheets are good for number crunching,
 but are not so good in: data cleaning (Practice), advanced graphics,
-spatial analysis (T), team work(Practice).
+spatial analysis (Practical-Theory), team work (Practice).
+
 Office editors or Powerpoint/ are great tools
 but are not quality publishing of statistical results.
 
-In my (humble) opinion it is completny wrong not to use some modern
-tools even in introductory courses as it is (often) the only
-lectures undergraduta students complete.
+It is wrong to ignore the existence of modern open source tools and not
+introduce students to them. It is wrong not to introduce students
+to some (even elementary) programming,
+and sticking exclusively to
+*point-and-click* mode of work (ie spreadsheet).
 
 I will try to demonstrate that using modern tools for statistical
-analysis is the way to go. That (some) modern tools are not more
-difficult that office software (at higher than basic level)
+analysis is a feasible way to go. That (some) modern tools are not much more
+(prohibitive) difficult that office software (at higher than basic level)
 
-Conclusion: less theory, more pratice and common sense.
+Conclusion: less theory, more practice and common sense. Show student
+real *'value chain' of statistical analysis with all its problems (not covered
+nowadays): 
 
-## Learnig curve comparison
+* *Poor definitions*: 
+complexity of statistical data collection: pimprecise, complex, *unintuitive*,
+contradictory etc definitions, 
+imprecise (or worse meaningless) measurement, 
+unreliable (incomplete, erroneous) data etc...
 
-![](./R_excel_LC.png)
+* *Modern tools*: programmable, better quality (graphics), more reliable
 
-
-## Learning statistic to social-science studies in Poland
-
-Typically a statistical course for undergraduate students
-in social sciences in Poland contains:
-
-* descriptive statistics for one variable,
-
-* descriptive methods for an association of two variables
-
-* elementary time series analysis (moving averages, linear trend/seasonality)
-
-* interference/probablity calculus 
-
-Interference/probablity calculus is lectured marginally or omitted
-as well as graphical methods and information visualization.
-
-Students works with "clean" one-off (small) data and the emphasis is put on methods/theory
-while organization of data collection and processing of data into statistical information 
-by a (local) government institution and/or international organisation is usually omitted.
-In result students are unaware how the data they use in every day life are created.
-
-![](./SAnalasis0.png)
-
-This oversimplistic three-stage process should be replaced by a 'value chain' 
-of statistical analysis:
+* *New workflow* based on reproducible research concept (expained momentarily)
 
 ![](./SAnalasis1.png)
 
+## Learnig curve comparison
 
-## Example: Full Time Equivalence (FTE)
+Learning curve of programmable vs point-and-click (direct-manipulation) tools:
+
+![](./R_excel_LC.png)
+
+For simple task learning programmable tools is waste of time but
+as task complexity increases it is more beneficial to use same programmable tool
+(cf [Scientific computing: Code alert](https://www.nature.com/nature/journal/v541/n7638/full/nj7638-563a.html)) 
+
+## Poor definitions example #1: Full Time Equivalence (FTE)
 
 Number of students.
 
@@ -144,7 +151,7 @@ Conclusion: Majors, Persons or FTEs? Which is the best?
 Assessment and Accreditation](http://www.usu.edu/aaa/about_our_data.cfm)
 google:single multiple majors fte
 
-## Example: measurement of tourism activity [concept of an Indicator]
+## Poor definitions example #2: measurement of tourism activity [concept of an Indicator]
 
 Who is a tourist. According to
 [Glossary:Tourism](https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:Tourism)
@@ -180,7 +187,7 @@ Conclusion: measurement of tourism activity is not trival
 Other similar: internet user, migrant, unemployed person,
 illiterate person
 
-## Example: measurement of tourism activity [data collection]
+## Poor definitions example #2: measurement of tourism activity [data collection]
 
 Tourism supply statistics (accommodation statistics): Data on rented accommodation ie. capacity and occupancy of tourist accommodation
 establishments in the reporting country. How collected? Registers?
@@ -205,7 +212,7 @@ and [EU regulation No 692/2011](https://eur-lex.europa.eu/legal-content/EN/ALL/?
 
 So now we know what we are dealing with...
 
-## Example nights spent (demand side)
+## Poor definitions example #2: Example nights spent (demand side)
 
 Share of nights spent at EU-28 tourist accommodation by tourists
 travelling outside their own country of residence, 2017 
@@ -262,15 +269,58 @@ ggarrange(p1, p2, ncol = 2, nrow = 1)
 to be continued...
 
 
-## Dreadful example: Purchasing Power Parity, inflation
-and international comarison of GDP
+## Poor definitions (final) example #3: dreadful aggregates
 
-** ADD MORE STUFF HERE **
+Indicators can be divided to hard indicators and soft indicators.
+*Hard indicators* denote hard facts while soft indicators are 
+*beliefs* and *intensions*. For example number of hotels is a fact,
+while intension to stay abroad less than a year is not a fact but an intention.
+In Poland at least 80% respondents declares they intend to vote, while
+the true turnover never exceed 55%. In other words measuring something using soft
+indicators is prone to (significant) errors.
+ 
+ That not means that hard indicator is error-free. By definition it measures not
+ the phenomenon but some proxy associated with the phenomenon. 
+ 
+ With hard indicator we have precise measurement of imprecise measure. With
+ soft indicator we have imprecise measurement of imprecise measure.
+ 
+ To cure (or hide) the problems aggregates of indicators are constructed,
+ eiter as sums (*indexes* or *formative*) or as averages (factors or *reflective*. 
+ Indexes are more popular in economics
+ while averages/factors are 
+ For example Gross National Product (GDP) is an index
+ while (customer) satisfaction defined as some set of opinions on a product would be a factor.
+ 
+ Control question: what is measured with GDP?
 
-## Measures of central tendency, dispersion and skewness
+## Interlude: R and Rstudio
+
+R is both *programming language*  for statistical computing and graphics and 
+a software (ie application) to execute programms written in R.
+R was developed in mid 90s  at the University of Auckland 
+(New Zealand).
+
+Since then R has become one of the dominant software environments for data analysis and is used by a variety of scientific disiplines.
+
+BTW why it is called so strange (R)? Long time ago it was popular to use short names for computer languags
+(C for example). At AT&T Bell Labs (John Chambers) in mid 70s a language oriented towards statistical
+computing was developed and called S (from Statistics). R is one letter before S in an alphabet.
+
+Rstudio is an *environment* through which to use R. In Rstudio one can simultaneously write code, execute
+code it, manage data, get help, view plots. Rstudio is a commercial product distributed
+under dual-license system by RStudio, Inc. Key developer of RStudio is Hadley Wickham 
+another brilliant New Zealander (cf [Hadley Wickham](https://en.wikipedia.org/wiki/Hadley_Wickham) )
+
+Microsoft invest heavily into R development recently. It bought Revolution Analytics a key 
+developer of R and provider of commercial versions of the system. With MS support the system
+is expected to gain more popularity (for example 
+by integrating it with popular MS products)
+
+## Interlude: Measures of central tendency, dispersion and skewness with R
 (univariate analysis)
 
-The CSV file hotele_caloroczne_PL.csv contains data on number of all-season hotels 
+The CSV file `hotele_caloroczne_PL.csv` contains data on number of all-season hotels 
 in every county in Poland. First one has to load the dataset with the read.csv command:
 
 ```{r, pl_hotel_data, cache=T}
@@ -297,11 +347,11 @@ var(d$hotele2012); var(d$hotele2017)
 sd(d$hotele2012); sd(d$hotele2017)
 ```
 
-Second attempt (and more compact output):
+Second attempt (with no output/respective values was saved as **variables** `var12`...`sd17`):
 
 ```{r, cache = F, dependson = "pl_hotel_data"}
-c(var(d$hotele2012, na.rm=T), var(d$hotele2017, na.rm=T),
- sd(d$hotele2012, na.rm=T), sd(d$hotele2017, na.rm=T))
+var12 <- var(d$hotele2012, na.rm=T); var17 <- var(d$hotele2017, na.rm=T)
+sd12 <- sd(d$hotele2012, na.rm=T); sd17 <- sd(d$hotele2017, na.rm=T);
 ```
 
 BTW:
@@ -325,55 +375,45 @@ c( IQR(d$hotele2012, na.rm=T), IQR(d$hotele2017, na.rm=T))
 
 Finally we can equally easilly assess the skewenss:
 
-## Measures of concentration/inequality distribution (univariate analysis)
+```{r, cache = F, dependson = "pl_hotel_data"}
+library(moments)
+c(skewness(d$hotele2012, na.rm=T), skewness(d$hotele2017))
+```
+
+Distribution skewness is significant in both periods. 
+Using (modified) Persons' formula $(\bar x -D )/ \sigma^2$ we obtain:
+```{r, cache=F}
+library("DescTools")
+(mean(d$hotele2017) - Mode(d$hotele2017) )/ sd17  
+```
+
+Still the distribution is positively 
+skewed, but the value of the coefficient is much smaller.
 
 
-Some variables by definition are positive (or non-negative):
-income, market share.
+## Better tools: for producing better charts 
 
-[sampling-distribution-of-gini-coefficient](https://www.r-bloggers.com/sampling-distribution-of-gini-coefficient/)
-[income-inequality](https://ourworldindata.org/income-inequality)
-
-*** ADD MORE STUFF HERE ***
-
-## Diversion: R and Rstudio
-
-R is both *programming language*  for statistical computing and graphics and 
-a software (ie application) to execute programms written in R.
-R was developed in mid 90s  at the University of Auckland 
-(New Zealand).
-
-Since then R has become one of the dominant software environments for data analysis and is used by a variety of scientific disiplines.
-
-BTW why it is called so strange (R)? Long time ago it was popular to use short names for computer languags
-(C for example). At AT&T Bell Labs (John Chambers) in mid 70s a language oriented towards statistical
-computing was developed and called S (from Statistics). R is one letter before S in an alphabet.
-
-Rstudio is an *environment* through which to use R. In Rstudio one can simultaneously write code, execute
-code it, manage data, get help, view plots. Rstudio is a commercial product distributed
-under dual-license system by RStudio, Inc. Key developer of RStudio is Hadley Wickham 
-another brilliant New Zealander (cf [Hadley Wickham](https://en.wikipedia.org/wiki/Hadley_Wickham) )
-
-Microsoft invest heavily into R development recently. It bought Revolution Analytics a key 
-developer of R and provider of commercial versions of the system. With MS support the system
-is expected to gain more popularity (for example 
-by integrating it with popular MS products)
-
-## Charts (purpose of)
+In spite of the fact that statistical charts are now ubiquitous in the media
+this topic is usually coverd marginally at most courses on statistics,
+probably because it is pretty hard to produce quality graphics 
+with office software (complexity vs difficulty).
+This pitiful state 
+of affairs can be changed with the introduction of modern tools. (How to make
+quality graphics is the main subject of my lecture BTW.)
 
 Statistical charts can be plotted for the following three purposes:
 
-* Decoration (to attract somebodys' attention, document without pictures looks dull,
+* **Decoration** (to attract somebodys' attention, document without pictures looks dull,
 color pictures are better than back-white ones, fanciful drawings are better than simple ones,
 *form is the king and content does not matter*)
 
-* Explanation (to better explain some phenomenon to somebody. It is claimed that a picture is worth
+* **Explanation** (to better explain some phenomenon to somebody. It is claimed that a picture is worth
 thousand of words in this context)
 
-* Exploration (looking for data patterns at the explorator stage of data analysis)
+* **Exploration** (looking for data patterns at the explorator stage of data analysis)
 
 Note: It is often recommended by some researchers 
-to use charts at data cleaning stage of statistical analysis. I do not recommend it. Data cleaning can
+to use charts at data cleaning stage of statistical analysis. I do not agree with it. Data cleaning can
 be automated and should not relay nor on manual work nor on visual inspection. 
 Using programs to check data 
 is more efficient and reliable procedure. It is also 100% replicable contrary to visual inspection.
@@ -388,16 +428,16 @@ information can be decoded more quickly/easily [Robbins 2005]
 
 Some graphs are better than others:
 
-* Recommended: (ordered) dot plots, bar charts, histograms and kernel
+* **Recommended**: (ordered) dot plots, bar charts, lineplots, histograms and kernel
 density estimates, stripcharts,
 multipanel displays (instead of stacked bars multiple line/dot plots)
 scatterplots (two variables)
 
-* Not recommended: Pie charts, bubble charts, stacked bar charts,
+* **Not recommended**: Pie charts, bubble charts, stacked bar charts,
 
-Bar/line/pie charts introduced by william Playfair in XVIII century.
-Dot plots introduced by Cleveland (1980s).
-Box-plots introduced by Tukey (1970s)
+Note: bar/line/pie charts were introduced by William Playfair in XVIII century.
+Dot plots were introduced by John Cleveland (1980s).
+Box-plots were introduced by John Tukey (1970s)
 
 ![](./WP.png)
 
@@ -405,7 +445,7 @@ More Playfair's charts can be found via google or at
 [](http://www.math.usu.edu/symanzik/papers/2009_cost/editorial.html)
 
 
-## Pie charts
+## Pie charts (not recommended), dot plots (recommended) and histograms (recommended)
 
 [Nights spent by non residents](https://ec.europa.eu/eurostat/statistics-explained/index.php/Tourism_statistics#Nights_spent_by_non-residents_in_the_EU-28:_Spain_on_top)
 
@@ -462,39 +502,33 @@ ggarrange(pc1, pc2, pc3, pc4, ncol = 2, nrow = 2)
 ```
 
 
-## Dot plots
-
-Jittering: adding random noise to data to avoid overlapping.
-
-## Bar charts
-
-## What, when and where
+## Interlude: what, when and where
 
 Before we continue with statistical graphicsa short 2 slides diversion 
 on geocode standards used in statistics. 
 
 No doubt in every reliable survey the population has to be precisely defined ie 
 3 dimensions of every surveyed unit should be fixed:
-definition (*what*), time (*when* measured), space (*where*)...
+definition (**what**), time (**when** measured), space (*where*)...
 
 I always repet to my students: if you look at some data (in the media for example), start
-from establishing if you know *what*, *when* and *where*. If no information (or 
+from establishing if you know **what**, **when** and **where**. If no information (or 
 *reliable link*--called source--to information) 
 is provided
 on any of the fixed dimensions of data, treat this data as rubbish and do not waste time to use/analyse it.
 
 Further dissemination of such defective data should be subjected to publicly prosecuted (joke)
 
-I tried to show you already that *what* is complicated and often highly unreliable/arbitrary
+I tried to show you already that **what** is complicated and often highly unreliable/arbitrary
 (the nature of the phenomenon or/and measurement difficulties).
 
-*What* dimension much more simpler due to universal standard, ie. time. 
+**What** dimension much more simpler due to universal standard, ie. time. 
 You gather data or for a certain moment (how many hotels
 are in use in 31st December 2018) or for certain period of time (how many beds were sold in these hotels in 3rd quarter of 2018). 
 
-*Where* dimensions in turn is usually based on administrative or statistical (geographical) units
+**Where** dimensions in turn is usually based on administrative or statistical (geographical) units
 (country, state/province, county, community). But contrary to time dimension
-there is no universal or globally-accepted standard for *geostatistical* units.
+there is no universal or globally-accepted standard for **geostatistical** units.
 Usually such a standard is based on administrative system which is country-dependent.
 
 The administrative division of Poland since 1999 has 
@@ -507,7 +541,7 @@ Conclusion: The pigs had to expend enormous labours every day upon mysterious th
 "minutes," and "memoranda." These were large sheets of paper which had to be closely covered with writing,
 and as soon as they were so covered, they were burnt in the furnace (George Orwell, Animal Farm)
 
-## NUTS and TERYT
+## Interlude: NUTS and TERYT
 
 The Nomenclature of Territorial Units for Statistics (NUTS)
 is a geocode standard for referencing the subdivisions of countries for statistical purposes.
@@ -572,40 +606,37 @@ A strip chart (strip plot) shows *the distribution* of data points along
 a numerical axis.These plots are suitable compared 
 to box plots when sample sizes are small (because preserve more information about the data).
 
-Example: average number of hotels in powiat by województwo
+Example: Number of hotels in powiat by region (NUTS1, 2017):
 
 ```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
 d <- read.csv("powiaty_wskazniki_woj_regiony.csv", sep = ';',  header=T, na.string="NA");
 d$wteryt <- as.factor(d$wteryt)
 
-p3<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
-   geom_jitter(position=position_jitter(0.05), cex=1.2)
-p4<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
-   geom_jitter(position=position_jitter(0.0), cex=1.2)
+p4<-ggplot(d, aes(x=nuts1, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.0), cex=.2)
+p3<-ggplot(d, aes(x=nuts1, y=hotele2017)) +
+  geom_point(alpha = 1/20)
+  #geom_point(size = .3)
+  #geom_jitter(position=position_jitter(0.05), cex=1.2)
 ggarrange(p4,p3, ncol = 2, nrow = 1)
 ```
 
-More jitter:
+The biggest potential problem with a dot/scatterplot is overplotting: 
+whenever one has more than a few points, points may be plotted on top of one another. 
+This can severely distort the visual appearance of the plot (left panel)
+
+There is no one solution to this problem, but there are some techniques that can help: 
+use smaller dots, use semi-transparent dots (right panel), use jitter.
+
+Jitter---a small random noise added to data, is shown below
+(higher jitter on the right panel)
 
 ```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
-
-p2<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
-   geom_jitter(position=position_jitter(0.1), cex=1.2)
-
-p1<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
-   geom_jitter(position=position_jitter(0.2), cex=1.2)
+p1<-ggplot(d, aes(x=nuts1, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.2), cex=.2)
+p2<-ggplot(d, aes(x=nuts1, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.1), cex=.2)
 ggarrange(p2,p1, ncol = 2, nrow = 1)
-```
-
-Boxplots are better:
-
-```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
-p5 <- ggplot(d, aes(x=wteryt, y=hotele2017, fill=wteryt)) + geom_boxplot() + ylab("#") + xlab("");
-
-p6 <- ggplot(d, aes(x=wteryt, y=hotele2017, fill=wteryt)) + geom_boxplot(outlier.shape=NA) + ylab("#") + xlab("") +
-      coord_cartesian(ylim = c(0, 25)) +
-      theme(legend.position="none")
-ggarrange(p5,p6,ncol = 2, nrow = 1)
 ```
 
 ## Histograms and kernel density functions
@@ -615,14 +646,14 @@ the numbers (observations) are grouped
 into bins (intervals or classes). There is
 a tradeoff between showing details or showing an overall picture.
 When bin width changes the scale at Y-axis changes as well (more bins less
-observations in each bin).
+observations in each bin). Example number of hotels in Poland (2017):
 
 ```{r, cache = F, dependson = "pl_hotel_data"}
 ggplot(d, aes(x = hotele2017)) +
   geom_histogram(bins = nclass.Sturges(d$hotele2017))
 ```
 
-Histograms with binwidth equal to 20,10, 5 and 1 respectively:
+Histograms with binwidth equal to 20, 10, 5 and 1 respectively:
 
 ```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
 #library(ggpubr)
@@ -652,8 +683,7 @@ p4 <- ggplot(data=d) + geom_density(aes(x=hotele2017), adjust=8.0)
 ggarrange(p1,p2,p3,p4)
 ```
 
-
-## Comparing distributions box-plots vs multiple histograms
+## Comparing distributions: box-plots
 
 Box-plots are much better than histograms for comparing distributions
 of more than one data sets.
@@ -675,9 +705,9 @@ Example: age of Nobel-prize
 winners (cf [The Nobel Prize API Developer Hub](https://nobelprize.readme.io/))
 
 ```{r, cache = F, echo=T }
-d <- read.csv("nobel_laureates3.csv", sep = ';', dec = ",",  header=T, na.string="NA");
+nlf <- read.csv("nobel_laureates3.csv", sep = ';', dec = ",",  header=T, na.string="NA");
 
-ggplot(d, aes(x=category, y=age, fill=category)) + geom_boxplot() + ylab("years") + xlab("");
+ggplot(nlf, aes(x=category, y=age, fill=category)) + geom_boxplot() + ylab("years") + xlab("");
 ```
 
 Multiple histograms are too detailed (binwidth=5). It is impossible for example to establish
@@ -687,8 +717,42 @@ and literature are candidates, but due to multimodality of literature laureates
 distribution it is difficult to assess this for sure...)
 
 ```{r, cache = F, echo=T }
-ggplot(d, aes(x=age, fill=category)) + geom_histogram(binwidth=5) +
+ggplot(nlf, aes(x=age, fill=category)) + geom_histogram(binwidth=5) +
     facet_grid(category ~ .)
+```
+
+## Comparing distributions box-plots vs multiple histograms
+
+Number of hotels in powiat by województwo (2017):
+
+```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
+p3<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.05), cex=.3)
+p4<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.0), cex=.3)
+ggarrange(p4,p3, ncol = 2, nrow = 1)
+```
+
+More jitter:
+
+```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
+p2<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.1), cex=.3)
+
+p1<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.2), cex=.3)
+ggarrange(p2,p1, ncol = 2, nrow = 1)
+```
+
+Boxplots are better:
+
+```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
+p5 <- ggplot(d, aes(x=wteryt, y=hotele2017, fill=wteryt)) + geom_boxplot() + ylab("#") + xlab("");
+
+p6 <- ggplot(d, aes(x=wteryt, y=hotele2017, fill=wteryt)) + geom_boxplot(outlier.shape=NA) + ylab("#") + xlab("") +
+      coord_cartesian(ylim = c(0, 25)) +
+      theme(legend.position="none")
+ggarrange(p5,p6,ncol = 2, nrow = 1)
 ```
 
 ## Scatter-plots
@@ -703,7 +767,68 @@ between variables, is fitted by minimizing the sum of squares of the residuals
 a data-point and a relevant line-point ie a point computed from the formula
 y = a +bx where x is the value of the x-axis variable.)
 
-Alternatively loess curve can be used which do not assumes linearity.
+(Almost) each Poland is acctarctive for tourist but those counties which are at the seaside (north) 
+or in the mountains (*south*) are special. There are 11 counties at the seaside (morze = sea)
+and 18 in the mountains (*góry*):
+
+
+
+```{r, cache = F, echo=F, warning=FALSE}
+d <- read.csv("powiaty_hotele_caloroczne_turysci_2017M.csv", sep = ';',  header=T, na.string="NA");
+
+d <-  subset(d, (y2017 > 0 ))
+dd <- d;
+
+m <- subset(dd, (teryt %in% c("3263", "3207", "3205", "3208", "3209", "3213", "2212", "2208", "2215", "2211", "2210")));
+# szacujemy prosty model trendu
+lm <- lm(data=m, tz2017 ~ y2017 ); summary(lm)
+otherc <- coef(lm);
+# W tytule średnia/mediana i równanie trendu
+title <- sprintf ("Hotels vs foreign tourists morze 2017 (y = %.2f x + %.1f)", otherc[2], otherc[1] );
+q0h <- ggplot(m, aes(x=y2017, y=tz2017)) + geom_point() +
+ ggtitle(title) +
+ geom_smooth(aes(x = y2017, y=tz2017, colour="tz2017"), method="lm", size=.5)
+
+m <- subset(dd, (teryt %in% c("1801", "1821", "1817", "1807",
+  "1805", "1205", "1210", "1211", "1217", "1215", "2417", "2403", "0208", "021", "0206", "0212")));
+# szacujemy prosty model trendu
+lm <- lm(data=m, tz2017 ~ y2017 ); summary(lm)
+otherc <- coef(lm);
+# W tytule średnia/mediana i równanie trendu
+title <- sprintf ("Hotels vs foreign tourists góry 2017 (y = %.2f x + %.1f)", otherc[2], otherc[1] );
+q1h <- ggplot(m, aes(x=y2017, y=tz2017)) + geom_point() +
+ ggtitle(title) +
+ geom_smooth(aes(x = y2017, y=tz2017, colour="tz2017"), method="lm", size=.5)
+
+# Loess
+
+m <- subset(dd, (teryt %in% c("3263", "3207", "3205", "3208", "3209", "3213", "2212", "2208", "2215", "2211", "2210")));
+title <- sprintf ("Weekly for %s # (y = %.2f x + %.1f)", "", otherc[2], otherc[1] );
+q2h<- ggplot(m, aes(x=y2017, y=tz2017)) + geom_point() +
+ ggtitle("Hotels vs foreign tourists morze 2017") +
+ geom_smooth(aes(x = y2017, y=tz2017, colour="darkblue"), method="loess", size=.5)
+
+m <- subset(dd, (teryt %in% c("1801", "1821", "1817", "1807",
+  "1805", "1205", "1210", "1211", "1217", "1215", "2417", "2403", "0208", "021", "0206", "0212")));
+q3h<- ggplot(m, aes(x=y2017, y=tz2017)) + geom_point() +
+ ggtitle("Hotels vs foreign tourists 2017 (góry)") +
+ geom_smooth(aes(x = y2017, y=tz2017, colour="darkblue"), method="loess", size=.5)
+
+
+ggarrange(q0h,q1h, ncol = 2, nrow = 1)
+```
+
+So each new hotel in the mointains on the average would attract 961.6 foreign tourists,
+while a new hotel at the seaside would attract
+5838 foreign tourists (and both numbers are statistically significant at $\alpha=0.05$:-) )
+
+
+Alternatively loess curve can be used which do not assumes linearity but is parameters
+are not interpretable.
+
+```{r, cache = F, echo=F, warning=FALSE}
+ggarrange(q2h,q3h,ncol = 2, nrow = 1)
+```
 
 ## Scales
 
@@ -762,7 +887,6 @@ pc5 <- ggplot(uf, aes(x = reorder(country, llfreq) )) +
 ggarrange(pc3, pc4, pc5, ncol = 3, nrow = 1);
 ```
 
-
 ## Graphic perception tasks
 
 From the best to the worst:
@@ -802,8 +926,43 @@ For univariate analysis use length or color not both for example.
 Pseudo 3D charts for 2D data should be forbidden as well and without
 any exception. Virtually no-one can read them. 
 
+The lie factor and data-ink ratio [Tufte]
 
-** ADD **
+!!! ADD !!!
+
+## Lie factor example
+
+This *giant guy* (GG) in the middle is our _ex-president_. The guy next to him on the left
+is our *current president* Duda. Next to Duda is ex-rock star Kukiz, dark-horse of the elections.
+This is the cover (slightly modified) 
+of influential polish weeekly magazine
+form Janury 2015, about five months before elections (which took place in may 2015).
+
+The figures are claimed to be in-sync with the recent survey results (sort of a barchart). 
+Could you figure-out from that chart about the proportion of scores of each candidate?
+How much the giant-guy outperforms the runner-up candidate? Which candidate is supported
+by this influential magazine (easy:-)?
+
+![](./Komorowski_Duda_Kukiz_sondaz_Polityka_hidden_numbers.jpg)
+
+The lie-factor details:
+
+![](./Komorowski_Duda_Kukiz_sondaz_Polityka_flactor_x.jpg)
+
+The line from shoes to top of the head equals (at certain size of course) 204mm for GG, 134mm for Duda
+and 42.5mm for ex-rock star. 
+So $204/134=1.5$ and $204/42.5 \approx 4.8$. As $44/29 \approx 1.5$
+and $44/9 \approx 4.8$ as well formally the lieFactor is perfect. 
+But should one compares lengths or areas?
+
+If one compares **areas** not heights, one get significantly different (and correct)
+results, namely: $(204 * 58) /(134 * 21)= 4.20$ and $(204 *58)/(42.5 *15) \approx 18.56$. Lie factor
+is $4.2/1.5 =280$% and $18.56/4.8=387$% respectively. Huge distortion
+
+Moreover two more tricks were applied to boost GG. Can you see them?
+
+BTW: the text in the pink frame claims: "figure ratios are consistent with april-may survey outcome.""
+(But what exactly *figure ratios* means?)
 
 ## Banking to 45
 
@@ -829,13 +988,11 @@ Setting the aspect ratio so that the weighted mean of line segments
 (weighted by segments' length is approx 45 degrees is called average
 weighted orientation method (to 45 degrees).
 
-*** Example ***
+**Exercise**: assess which slope is the steepest one and which is the smallest one?
 
-## Diversion: R (making charts)
+![](./SameSlopeRate.jpg){width=60%}
 
-## The lie factor and data-ink ratio [Tufte]
-
-## Example: education system in Poland
+**ADD**
 
 
 
@@ -851,19 +1008,13 @@ QGis
 
 ## Example: Poland (population, incomes, distribution of)
 
-## More examples of spatial charts
-
-## Summary: bad graphics examples
-
 ## Bivariate analysis
 
 ## Example: tourist vs industry vs education (in Poland)
 
-## Example:
-
 ## Timeseries analysis
 
-## Bad example: tourists at Malbork castle
+## Interlude: Crusaders, Knights and Malbork castle
 
 First short explanation about the subject of the analysis ie
 famous Castle of the Teutonic Order in Malbork which is enlisted at UNESCO heritige list
@@ -891,37 +1042,138 @@ and there were a lot more places named Marien-something  (as Marien is St Mary i
 
 BTW2: There is about 40km from Kwidzyn to Malbork :-)
 
+## Interlude: example of a very bad graphs
+
+There is a research, peer-reviewed paper on tourist traffic in the castle's museum of Malbork
+
 [The determinants of the tourist traffic
  in the castle's museum of Malbork](http://www.ojs.ukw.edu.pl/index.php/johs/article/view/4119/pdf)
 
-## Elementary spatial analysis
+Unfortunatel all charts in this paper contains elementary errors. Could you identify them?
 
-## Example: industry concentration (in Poland)
+![](./MBC_1.png)
 
-## Information presentation by Edward Tufte
+![](./MBC_2.png)
 
-## Tufte's famous slide
 
-## Resources
+```{r, cache = F, echo=F, warning=FALSE, error=FALSE}
+#library(ggplot2)
+#library(RColorBrewer)
+#library(dplyr)
+#library(ggarrange)
 
-[cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
-[QGIS tutorials](https://www.qgistutorials.com/en/docs/)
-[gis.stackexchange.com](https://gis.stackexchange.com/)
+df <- data.frame( visit.freq=c("every few years", "once a year", "every few months", "once a month", "every few weeks"),
+n=c(36,30, 22, 6, 6))
 
-## Data banks
+colors <- brewer.pal(10, "Set1");
+df["label"] <- sprintf ("%.1f", df$n);
 
-## Tourism cd
-[nui](http://appsso.eurostat.ec.europa.eu/nui/submitViewTableAction.do)
+df <- df %>%
+  arrange(desc(visit.freq)) %>%
+  mutate(ypos = cumsum(n) - 0.5*n)
 
-## Kaggle (Coffee production/consumption)
-[icos-crop-data](https://www.kaggle.com/sbajew/icos-crop-data)
-[exploring-coffee-production-and-consumption](https://www.kaggle.com/sbajew/exploring-coffee-production-and-consumption)
-[ico-coffee-crop-data-data-wrangling](https://www.kaggle.com/sbajew/ico-coffee-crop-data-data-wrangling)
+px1 <- ggplot(df, aes(x = "", y = n, fill = visit.freq)) +
+  geom_bar(width = 1, stat = "identity", color = "white") +
+  coord_polar("y", start = 0)+
+  geom_text(aes(y = ypos, label = label), color = "black", size=3)+
+  scale_fill_manual(values = colors, name="Frequency") +
+  theme_void()
 
-## Varia
-[hours-worked](https://data.oecd.org/emp/hours-worked.htm)
+px2 <- ggplot(df, aes(x = reorder(visit.freq, n), y=n)) +
+  geom_bar(stat="identity", fill = 'steelblue' ) +
+  xlab(label="#") +
+  ylab(label="% ") +
+  coord_flip()+
+  geom_text(aes(label=n), hjust=1.6, color="white", size=3.0)+
+  ggtitle("Frequency...") +
+  theme(plot.title = element_text(hjust = 0.5))
 
-## Sorry but why use all this strange stuff at all?
+dg <- data.frame( visit.freq=c("1--2", "3--5", "6--7", "8 and more"),
+n=c(78.9, 18.0, 2.1, 1.0))
+dg["lab"] <- sprintf ("%.1f", dg$n);
+
+dg <- dg %>%
+  arrange(desc(visit.freq)) %>%
+  mutate(ypos = cumsum(n) - 0.5*n)
+
+px88 <- ggplot(dg, aes(x = "", y = n, fill = visit.freq)) +
+  geom_bar(width = 1, stat = "identity", color = "white") +
+  coord_polar("y", start = 0)+
+  geom_text(aes(y = ypos, label = lab), color = "black", size=3)+
+  scale_fill_manual(values = colors, name="Frequency") +
+  theme_void()
+
+px9 <- ggplot(dg, aes(x = reorder(visit.freq, n), y=n)) +
+  geom_bar(stat="identity", fill = 'orange' ) +
+  xlab(label="#") +
+  ylab(label="% ") +
+  coord_flip()+
+  geom_text(aes(label=lab), hjust=-.3, color="darkgreen", size=3.0)+
+  ggtitle("Length of stay (days)") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+dh <- data.frame( visit.freq=c("guestrooms", "family", "camping", "hostel", "hotel", "guesthouse"),
+      n=c(48.0, 23, 11, 9.0, 5.4, 3.6))
+
+dh["lab"] <- sprintf ("%.1f", dh$n);
+
+px3<-ggplot(dh, aes(x = reorder(visit.freq, n), y=n)) +
+  geom_bar(stat="identity", fill = 'orchid2' ) +
+  xlab(label="#") +
+  ylab(label="% ") +
+  coord_flip()+
+  geom_text(aes(label=lab), hjust=-.1, color="darkgreen", size=3.0)+
+  ggtitle("Type of accomodation") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+
+px4<-ggplot(dh, aes(x = reorder(visit.freq, n) )) +
+  geom_point(aes(y = n, color="blue",show.legend=F), size=3) +
+  xlab(label="#") +
+  ylab(label="% ") +
+  coord_flip()+
+  geom_text(aes(y=n, label=lab), hjust=.1, vjust=-.8, color="darkgreen", size=3.0)+
+  ggtitle("Share of...") +
+  scale_color_discrete(guide=F) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+```
+
+if one insists on using piecharts (improved version):
+
+```{r, cache = F, echo=F, warning=FALSE, error=FALSE}
+ggarrange(px1, px88, ncol = 2, nrow = 1);
+```
+
+or better, using bar/dot charts:
+
+```{r, cache = F, echo=F, warning=FALSE, error=FALSE}
+ggarrange(px2, px3, px4, px9, ncol = 2, nrow = 2);
+```
+
+## Even worse graphics (yes we can:-) )
+
+Piecharts are notorious for obscurity:
+
+![](./budzety_piechart.jpg)
+
+![](./reklama_prasy_piechart.jpg)
+
+What about this barchart (distribution of seats in Polish parliament (Sejm) after 2015 
+elections---50% majority is 430 seats)?
+
+![](./koszmarny_barchart.jpg)
+
+Remember dark-horse ex-rock start Kukiz? IMO his bar does 
+not looks like being equal to 50 votes (minus 1.)
+PO-bar is peculiar as well...
+
+Not mention about strange tilt to the left...
+
+
+## New workflow (finally): reproducible research
+
+Sorry but why use all this strange stuff at all?
 
 So you probably still wander why I am punishing myself with using such a odd system. The
 most important argument why I will present momentarily and it concerns the basic
@@ -952,10 +1204,10 @@ Replicability vs Reproducibility
 
 Hot topic: google: reproducible research = 158000
 
-*Replicability*: independent experiment targetting the same question
+**Replicability**: independent experiment targetting the same question
 will produce a result consistent with the original study.
   
-*Reproducibility*: ability to repeat
+**Reproducibility**: ability to repeat
 the experiment with exactly the same outcome as
 originally reported [description of method/code/data is needed to do so].
 
@@ -1081,16 +1333,25 @@ markdown for reproducible research
 
 * Introduce some new tools (R/Rstudio, QGIS, Github)
 
+## Summary: Resources
 
-## More Data banks
+[cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+[QGIS tutorials](https://www.qgistutorials.com/en/docs/)
+[gis.stackexchange.com](https://gis.stackexchange.com/)
 
-[UK immigration-statistics](https://www.gov.uk/government/statistics/immigration-statistics-year-ending-september-2018-data-tables)
+## Summary Data banks
 
-## Example educational resources
+* Tourism cd
+[nui](http://appsso.eurostat.ec.europa.eu/nui/submitViewTableAction.do)
+
+* Kaggle (Coffee production/consumption)
+[icos-crop-data](https://www.kaggle.com/sbajew/icos-crop-data)
+[exploring-coffee-production-and-consumption](https://www.kaggle.com/sbajew/exploring-coffee-production-and-consumption)
+[ico-coffee-crop-data-data-wrangling](https://www.kaggle.com/sbajew/ico-coffee-crop-data-data-wrangling)
 
 https://git.generalassemb.ly/briancwq/classes/blob/master/week-01/lessons/python-descriptive_statistics_numpy-lesson-master/archive/LESSON.md
 
-[ukraine-deputies](https://www.kaggle.com/piterfm/ukraine-deputies#ukraine_deputies.csv)
+https://www.unece.org/stats/documents/writing/
 
 ## Questions
 
