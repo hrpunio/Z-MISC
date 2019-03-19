@@ -1197,7 +1197,7 @@ and when rendered with QGIS looks like:
 
 ![](./UZ-UHL.jpg)
 
-Heatmaps shows density more clearly (or nor--opinions are contradictory):
+Heatmaps shows density more clearly (or not--opinions are contradictory):
 
 ![](./UHL-12.jpg)
 
@@ -1208,7 +1208,7 @@ plot them on the map:
 
 ![](./NTL-1234.jpg)
 
-## Example: concentration of Polish big industry
+## Example: Concentration of Polish big industry
 
 Every year [Rzeczpospolita](https://en.wikipedia.org/wiki/Rzeczpospolita_(newspaper)),
 a nationwide daily economic and legal newspaper 
@@ -1216,7 +1216,11 @@ compiles a list of 2000 biggest companies (idea similar to Fortune 500 list)
 The distribution is highly skewed and concentrated, but what about spatial
 distribution of Polish big companies? Feature/Heat to the rescue...
 
-![](./Rz2000-12.jpg)
+![](./Rz2000-12g.jpg)
+
+BTW: the small picture in the middle depicts Poland during
+Weichselian and Würm cold period (15,000--11,700 years ago, 
+cf [Weichselian glaciation](https://en.wikipedia.org/wiki/Weichselian_glaciation))
 
 ## Interlude: Crusaders, Knights and Malbork castle
 
