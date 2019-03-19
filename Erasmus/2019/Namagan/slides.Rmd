@@ -885,6 +885,11 @@ pc5 <- ggplot(uf, aes(x = reorder(country, llfreq) )) +
 ggarrange(pc3, pc4, pc5, ncol = 3, nrow = 1);
 ```
 
+The exact figures are as follows:
+
+```{r cache = F, echo=F }
+u
+```
 ## Graphic perception tasks
 
 From the best to the worst:
@@ -1191,6 +1196,27 @@ and when rendered with QGIS looks like:
 ![](./UHL.jpg)
 
 ![](./UZ-UHL.jpg)
+
+Heatmaps shows density more clearly (or nor--opinions are contradictory):
+
+![](./UHL-12.jpg)
+
+## Example: Nobel prize winners by place of birth
+
+Remember Nobel winners by country? With heat-maps one can 
+plot them on the map:
+
+![](./NTL-1234.jpg)
+
+## Example: concentration of Polish big industry
+
+Every year [Rzeczpospolita](https://en.wikipedia.org/wiki/Rzeczpospolita_(newspaper)),
+a nationwide daily economic and legal newspaper 
+compiles a list of 2000 biggest companies (idea similar to Fortune 500 list)
+The distribution is highly skewed and concentrated, but what about spatial
+distribution of Polish big companies? Feature/Heat to the rescue...
+
+![](./Rz2000-12.jpg)
 
 ## Interlude: Crusaders, Knights and Malbork castle
 
