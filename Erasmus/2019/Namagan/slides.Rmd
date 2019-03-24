@@ -110,7 +110,7 @@ as task complexity increases it is more beneficial to use same programmable tool
 
 Number of students.
 
-Who is a student?
+**Who is a student?**
 
 Student is a person attending to
 a 3rd level status school in in the
@@ -132,13 +132,13 @@ In many countries there are some certification scheme. For example
 in Poland a school must apply (and get) a certificate to be
 regarded as high school (ie part of tertiary level of education)
 
-Heads vs Majors
+**Heads vs Majors**
 
 Student can be enrolled to more than one course (major).
 So for counting heads it is necessary  to remove duplicates
 otherwise one would count majors not persons.
 
-Part time studies
+**Part time studies**
 
 FTE stands for Full-Time-Equivalent, an approximation of the
 number of students who would be enrolled full-time
@@ -155,7 +155,7 @@ google:single multiple majors fte
 
 ## Poor definitions example #2: measurement of tourism activity [concept of an Indicator]
 
-Who is a tourist. According to
+**Who is a tourist**. According to
 [Glossary:Tourism](https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:Tourism)
 
 Tourism means the activity of visitors taking a trip
@@ -189,10 +189,15 @@ Conclusion: measurement of tourism activity is not trivial
 Other similar: internet user, migrant, unemployed person,
 illiterate person
 
-## Poor definitions example #2: measurement of tourism activity [data collection]
+## Sloppy measurement: measurement of tourism activity [data collection]
 
 Tourism supply statistics (accommodation statistics): Data on rented accommodation ie. capacity and occupancy of tourist accommodation
 establishments in the reporting country. How collected? Registers?
+
+**How statistical data is collected?**: exhaustive data vs sample. **Exhaustive**:
+dedicated sureys (obligatory reports) vs administrative 
+registers (births, deaths, police statistics). Sample: representative sample
+vs random sample vs panel data. Panels (cf [Panel Research](https://www.questionpro.com/blog/panel-research-why-it-matters/)). Panels are overused nowadys (cf https://panelariadna.pl/):
 
 Quirks of data collection:
 Data up to year 2015 inclusive refer to only those units that made the statistical reports.
@@ -201,7 +206,7 @@ the method of imputation data was implemented (ie replacing
 missing data with some (possibly meaningful :-)) values.
 (cf [BDL](https://bdl.stat.gov.pl/BDL/dane/podgrup/temat/18/240/2396))
 
-Tourism demand statistics: Data on participation in tourism of the residents of the reporting country.
+**Tourism demand statistics**: Data on participation in tourism of the residents of the reporting country.
 How collected? Surveys?
 
 Most of the time, data on domestic and outbound trips (where "outbound tourism" means residents of a country travelling in another country) is collected via sample
@@ -214,14 +219,14 @@ and [EU regulation No 692/2011](https://eur-lex.europa.eu/legal-content/EN/ALL/?
 
 So now we know what we are dealing with...
 
-## Poor definitions example #2: Example nights spent (demand side)
+## Sloppy measurement: Example nights spent (demand side)
 
 Share of nights spent at EU-28 tourist accommodation by tourists
 travelling outside their own country of residence, 2017 
 [Share of nights spent at EU-28 tourist accommodation by tourists
 travelling outside their own country](http://appsso.eurostat.ec.europa.eu/nui/submitViewTableAction.do)
 
-Country of residence -> Foreign country (estimated data)
+Country of residence = Foreign country (estimated data)
 
 | year | 2008    | 2009    |    2010  |     2011 | 2012     | 2013     |     2014 |     2015 |  2016    | 2017  |
 | -----|:-------:| -------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|------:|
@@ -290,11 +295,32 @@ indicators is prone to (significant) errors.
  To cure (or hide) the problems aggregates of indicators are constructed,
  eiter as sums (*indexes* or *formative*) or as averages (factors or *reflective*. 
  Indexes are more popular in economics
- while averages/factors are 
+ while averages/factors are more popular in psychology, sociology etc...
+ 
  For example Gross National Product (GDP) is an index
  while (customer) satisfaction defined as some set of opinions on a product would be a factor.
  
  Control question: what is measured with GDP?
+ 
+ Collection methods from most to last reliable:
+
+* administrative registers (almost all)
+
+* some obligatory reports, some sample-based
+
+* panels, obligatory reports when respondent is unable/unwill/ to provide information or take part at all), most sample-based (intensions, soft factors)
+
+Typical collection method description of a sample based survey:
+Data collected from 1st April to 2nd April 2019.
+Cross national panel (or sample). Respondent age +18. Panel size 1020. 
+Quotas representative for sex, age and residence type
+
+No information provided on non-response rate/non-contact rate (why?).
+
+
+**Example**: How to measure illiteracy? A. Ask a straight question (can you read/write). B. Ask a question how many books respondent read last year, if zero = illiterate (nasty!).
+C. Ask for certificate (infeasable). I wonder about illiteracy rate of many
+countries if approach B would be excercised:-)
 
 ## Interlude: R and Rstudio
 
@@ -570,7 +596,7 @@ but unfortunately in Polish (use google translate :-) in case you are interested
 ![](./polska_nuts2-2016.png)
 
 The above map shows 7 macroregions (NUT1) and 16 provinces (NUTS2).
-BTW province is Polish is "prowincja" (due to both are from Latin) but actually 
+BTW province in Polish is "prowincja" (due to both are from Latin) but actually 
 Polish administrative provice is called "województwo", from "wodzić" -- ie commanding (the armed 
 troops in this context).  This is an old term/custom from the 14th century, 
 where Poland was divided into provinces (every province
@@ -766,7 +792,7 @@ between variables, is fitted by minimizing the sum of squares of the residuals
 a data-point and a relevant line-point ie a point computed from the formula
 y = a +bx where x is the value of the x-axis variable.)
 
-(Almost) each Poland is attractive for tourist but those counties which are at the seaside (north) 
+(Almost) each part of Poland is attractive for tourists, but those counties which are at the seaside (north) 
 or in the mountains (*south*) are special. There are 11 counties at the seaside (morze = sea)
 and 18 in the mountains (*góry*):
 
@@ -816,7 +842,7 @@ q3h<- ggplot(m, aes(x=y2017, y=tz2017)) + geom_point() +
 ggarrange(q0h,q1h, ncol = 2, nrow = 1)
 ```
 
-So each new hotel in the mointains on the average would attract 961.6 foreign tourists,
+So each new hotel in the mountains on the average would attract 961.6 foreign tourists,
 while a new hotel at the seaside would attract
 5838 foreign tourists (and both numbers are statistically significant at $\alpha=0.05$:-) )
 
@@ -833,7 +859,7 @@ ggarrange(q2h,q3h,ncol = 2, nrow = 1)
 Logarithmic scale makes it possible to plot values with too
 wide range for a linear scale. Base 10 logarithms `squeeze' the numbers
 more than base 2 logarithms (log10(100)=2 wile log2(100)=6.64.
-Moreover is the original scale contains multiplications of 10 use
+Moreover if the original scale contains multiplications of 10 use
 log10 to get `nice' log-scale while it
 contains multiplications of 2 use log2.
 
@@ -1571,30 +1597,43 @@ do not use GitHub.
 
 * [Rstudio](https://www.rstudio.com/resources/cheatsheets/)
 
-* [QGIS tutorials](https://www.qgistutorials.com/en/docs/)
-
-* [gis.stackexchange.com](https://gis.stackexchange.com/)
-
 * [Making Data Meaningful](https://www.unece.org/stats/documents/writing/)
 
-**Data banks**
+* [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
 
 * Supplementary resources 
 to my lecture (slides/data/R scripts etc) 
   are available at:
 [https://github.com/hrpunio/Z-MISC/tree/master/Erasmus/2019/Namagan](https://github.com/hrpunio/Z-MISC/tree/master/Erasmus/2019/Namagan)
 
+
+**Data banks**
+
 * [Polish Main Statistical Office](https://stat.gov.pl/)
 
 * [Bank Danych Lokalnych (Local Data Bank)]()https://bdl.stat.gov.pl/BDL/start)
 
-* [Eurostat (European Union Statistical Office)](https://ec.europa.eu/eurostat)
+* [Eurostat (European Union Statistical Office)](https://ec.europa.eu/eurostat/data/database)
 
 * [My github repository](https://github.com/hrpunio))
 
 * [Tourism](http://appsso.eurostat.ec.europa.eu/nui/submitViewTableAction.do)
 
 * [Coffee production/consumption](https://www.kaggle.com/sbajew/icos-crop-data)
+
+## Geo resources
+
+* [GISCO](https://ec.europa.eu/eurostat/web/gisco/overview)
+
+* [NUTS downolad page](https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts)
+
+* [TERYT download page](http://eteryt.stat.gov.pl/eTeryt/rejestr_teryt/udostepnianie_danych/formy_i_zasady_udostepniania/formy_i_zasady_udostepniania.aspx?contrast=default)
+
+* [World Borders Dataset](http://thematicmapping.org/downloads/world_borders.php)
+
+* [QGIS tutorials](https://www.qgistutorials.com/en/docs/)
+
+* [gis.stackexchange.com](https://gis.stackexchange.com/)
 
 ## Questions?
 
