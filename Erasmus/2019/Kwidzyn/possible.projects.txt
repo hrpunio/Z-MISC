@@ -1,0 +1,30 @@
+Compare PL with your country/some other contry(ies)
+
+or
+
+Analyse Malbork traffic (compare with traffic
+at province/country level; GUS data)
+
+Add some theory first; then illustrate this theory
+with empirical analysis. Thats all
+
+Resources
+=========
+Monthly data on visitors to Malbork castle Muzeum (MZM) 2015--2019
+
+Nights spent at tourist accommodation establishments by NUTS 2 regions (Eurostat, yearly) 
+https://pl.wikipedia.org/wiki/Jednostki_NUTS_w_Polsce
+
+Polish main statistical office (GUS)
+Turism and sport (Turystyka w 2017 roku (dział drugi))
+https://stat.gov.pl/obszary-tematyczne/kultura-turystyka-sport/turystyka/turystyka-w-2017-roku,1,15.html
+
+Recommended software
+====================
+R/git
+
+gretl/git
+
+googledocs
+
+Excel is not recommended but if one can't switch to something else...
