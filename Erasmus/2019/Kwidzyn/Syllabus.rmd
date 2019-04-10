@@ -1,0 +1,52 @@
+---
+title: "Local development/Regional economy project"
+author: "Tomasz Przechlewski"
+division: "Powiślańska Szkoła Wyższa (Kwidzyn/Poland)"
+description: (c) Tomasz Przechlewski / CC-BY license
+date: "2019"
+---
+
+## Potential subject of analysis
+
+* Compare/analyse tourist traffic (TT) in PL with your country; Compare/analyse TT in some countries.
+using Eurostat data for example or data from (some other country) Statistical Office.
+By compare/analyse I mean computing basic 
+descriptive statistics, assessing trend and seasonality (if you know more advanced methods--ARIMA 
+for example--of course you can use them too)
+
+* Analyse Malbork visitors traffic. Compare with traffic
+at province/country level (GUS data) or country level (Eurostat)
+
+## Poster content/structure
+
+Add some theory first (some definitions/concepts + some domain information ie. if for example poster is on Malbork data write 1--2 paragraphs on Malbork Castle) then 
+present some empirical analysis. Write some concluding remarks (even if they are obvious :-). That's all
+
+Example ([examplePoster.pdf](examplePoster.pdf))
+
+## Theory Resources
+
+* R. Baggio, Measuring Tourism: Methods, Indicators, and Needs
+([baggio_MeasTourism.pdf](baggio_MeasTourism.pdf))
+
+* Methodological manual for tourism statistics ([pdf](https://ec.europa.eu/eurostat/web/products-manuals-and-guidelines/-/KS-GQ-14-013))
+
+
+## Data resources
+
+* Separate page in tourist related statistical data
+([TourData.html](TourData.html))
+
+* Monthly data on visitors to Malbork castle Muzeum (MZM) 2015--2019
+([MZM.csv](MZM.csv) )
+
+## Recommended software / deadline etc
+
+* Use software you know. 
+Final poster shoud be delivered in PDF (A3 or A4 format. A4 format
+will be enlarged to A3 anyway, so use smaller letters)
+
+* Final deadline: one week before Poster Session which is sheduled on May 24th. 
+Try to deliver earlier to me (even if unfinished) tprzechlewski@gmail.com
+
+
