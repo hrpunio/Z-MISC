@@ -10,6 +10,22 @@ output:
     smaller: true
 ---
 
+## Who am I
+
+My name is Tomasz Plata-Przechlewski and I live in Poland. I was born on 16th june 1963
+(it was Sunday BTW).
+
+I graduated economy long time ago 
+and I am teaching statistics and information systems (mainly).
+
+I am a big fan of open source software (or OSS) and I use a few OSS systems including Linux,
+R and LaTeX.
+
+My hobby is Road Cycling and History. A I am also a amateur photographer
+and Rugby Union (aka Lelo) fan (but never played myself, sorry)
+(cf [tprzechlewski@flickr](https://www.flickr.com/photos/tprzechlewski/))
+
+
 ## Why it is important to know the rules of statistical charts
 
 **Lies, damned lies, and statistics**
@@ -144,108 +160,6 @@ pc4 <- ggplot(df, aes(x = reorder(class, n), y=prop, fill=prop )) +
 ggarrange(pc1, pc2, pc3, pc4, ncol = 2, nrow = 2)
 ```
 
-## NUTS and TERYT
-
-The Nomenclature of Territorial Units for Statistics (NUTS)
-is a geocode standard for referencing the subdivisions of countries for statistical purposes.
-The standard is developed and regulated by the European Union, and thus only covers the member states of the EU in detail (cf [NUTS](https://en.wikipedia.org/wiki/Nomenclature_of_Territorial_Units_for_Statistics))
-
-NUTS *standard* was revised several times (on the average every 4 years :-)), so there is even a page 
-at ec.europa.eu domain dedicated to NUTS (short) history (cf 
-[NUTS history](https://ec.europa.eu/eurostat/documents/345175/501899/Nuts-history))
-
-![](./NUTS-history.jpg)
-
-NUTS1 (level) -- macroregion, NUTS2 -- state, NUTS3 -- subregion (several counties in case of Poland)
-
-Poland is divided into *7 macroregions*,  *16 states (NUTS2)*, and 72
-subregions (NUTS3).
-
-NUTS1 level is only for statistical purposes (but regions are in fact
-distinct due to history, economics, natural-conditions, cultural factors etc... )
-
-There is a relevant and interesting page by GUS (Main Statistical Office or Główny Urząd Statystyczny),
-but unfortunately in Polish (use google translate :-) in case you are interested or mail me)
-(cf [Klasyfikacja NUTS w Polsce](https://stat.gov.pl/statystyka-regionalna/jednostki-terytorialne/klasyfikacja-nuts/klasyfikacja-nuts-w-polsce/) )
-
-![](./polska_nuts2-2016.png)
-
-The above map shows 7 macroregions (NUT1) and 16 provinces (NUTS2).
-BTW province in Polish is "prowincja" (due to both are from Latin) but actually 
-Polish administrative provice is called "województwo", from "wodzić" -- ie commanding (the armed 
-troops in this context).  This is an old term/custom from the 14th century, 
-where Poland was divided into provinces (every province
-ruled by a "wojewoda" ie chief of that province). More can be found
-at Wikipedia (cf [Administrative divisions of Poland](https://en.wikipedia.org/wiki/Administrative_divisions_of_Poland))
-
-NUTS3 consists of 380 counties grouped into 72 subregions.
-
-A Polish county (called "powiat") is 2-nd level administrative unit. 
-
-In ancient Poland powiat was called
-"starostwo" and the head of a "starostwo was called "starosta". "Stary" means Old, so
-"starosta" is an old (and thus wise) person. 
-BTW the head of powiat is "starosta" as 600 years ago:-)
-
-![](./polska_nuts3-2016_r.png)
-
-The 3rd level administrative unit is called "gmina" (community). 
-
-There are (approximately) 380 counties and 2750 communities in Poland. 
-
-As Poland population is 38,5 mln and the area equals 312,7
-sq kilometers (120 persons per 1 sqkm) on the average each powiat has 820 sqkm and each community
-has 113.5 sqkm or approximately 100 thousand persons per "powiat and 14 thousand per "gmina".
-
-**TERYT** is a Polish NUTS (developed some 50 years ago). It is complex system which includes
-identification of administrative units. Every unit has (up to) a 7-digit id number: wwppggt
-where ww = "województwo" id, pp = "powiat" id, gg = "gmina" id and "t" decodes type-of-community
-(rural, municipal or mixed). Higher units has trailing zeros for irrelevant part of id, so
-14 or 1400000 means the same; as well as 1205 and 1205000. Six numbers is enough to identify
-a community (approx 2750 units).
-
-So you are now experts on administrative division of Poland, and we can
-go back to statistical charts...
-
-
-## Strip charts
-
-A strip chart (strip plot) shows *the distribution* of data points along
-a numerical axis.These plots are suitable compared 
-to box plots when sample sizes are small (because preserve more information about the data).
-
-Example: Number of hotels in powiat by region (NUTS1, 2017):
-
-```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
-d <- read.csv("powiaty_wskazniki_woj_regiony.csv", sep = ';',  header=T, na.string="NA");
-d$wteryt <- as.factor(d$wteryt)
-
-p4<-ggplot(d, aes(x=nuts1, y=hotele2017)) +
-   geom_jitter(position=position_jitter(0.0), cex=.2)
-p3<-ggplot(d, aes(x=nuts1, y=hotele2017)) +
-  geom_point(alpha = 1/20)
-  #geom_point(size = .3)
-  #geom_jitter(position=position_jitter(0.05), cex=1.2)
-ggarrange(p4,p3, ncol = 2, nrow = 1)
-```
-
-The biggest potential problem with a dot/scatterplot is overplotting: 
-whenever one has more than a few points, points may be plotted on top of one another. 
-This can severely distort the visual appearance of the plot (left panel)
-
-There is no one solution to this problem, but there are some techniques that can help: 
-use smaller dots, use semi-transparent dots (right panel), use jitter.
-
-Jitter---a small random noise added to data, is shown below
-(higher jitter on the right panel)
-
-```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
-p1<-ggplot(d, aes(x=nuts1, y=hotele2017)) +
-   geom_jitter(position=position_jitter(0.2), cex=.2)
-p2<-ggplot(d, aes(x=nuts1, y=hotele2017)) +
-   geom_jitter(position=position_jitter(0.1), cex=.2)
-ggarrange(p2,p1, ncol = 2, nrow = 1)
-```
 
 ## Histograms and kernel density functions
 
@@ -257,6 +171,8 @@ When bin width changes the scale at Y-axis changes as well (more bins less
 observations in each bin). Example number of hotels in Poland (2017):
 
 ```{r, cache = F, dependson = "pl_hotel_data"}
+d <- read.csv("powiaty_wskazniki_woj_regiony.csv", sep = ';',  header=T, na.string="NA");
+
 ggplot(d, aes(x = hotele2017)) +
   geom_histogram(bins = nclass.Sturges(d$hotele2017))
 ```
@@ -322,11 +238,118 @@ ggplot(nlf, aes(x=category, y=age, fill=category)) + geom_boxplot() + ylab("year
 ```
 
 
-## Comparing distributions box-plots vs multiple histograms
+
+## NUTS and TERYT
+
+The Nomenclature of Territorial Units for Statistics (NUTS)
+is a geocode standard for referencing the subdivisions of countries for statistical purposes.
+The standard is developed and regulated by the European Union, and thus only covers the member states of the EU in detail (cf [NUTS](https://en.wikipedia.org/wiki/Nomenclature_of_Territorial_Units_for_Statistics))
+
+NUTS *standard* was revised several times (on the average every 4 years :-)), so there is even a page 
+at ec.europa.eu domain dedicated to NUTS (short) history (cf 
+[NUTS history](https://ec.europa.eu/eurostat/documents/345175/501899/Nuts-history))
+
+![](./NUTS-history.jpg)
+
+NUTS1 (level) -- macroregion, NUTS2 -- state, NUTS3 -- subregion (several counties in case of Poland)
+
+Poland is divided into *7 macroregions*,  *16 states (NUTS2)*, and 72
+subregions (NUTS3).
+
+NUTS1 level is only for statistical purposes (but regions are in fact
+distinct due to history, economics, natural-conditions, cultural factors etc... )
+
+There is a relevant and interesting page by GUS (Main Statistical Office or Główny Urząd Statystyczny),
+but unfortunately in Polish (use google translate :-) in case you are interested or mail me)
+(cf [Klasyfikacja NUTS w Polsce](https://stat.gov.pl/statystyka-regionalna/jednostki-terytorialne/klasyfikacja-nuts/klasyfikacja-nuts-w-polsce/) )
+
+![](./polska_nuts2-2016.png){width=90%}
+
+The above map shows 7 macroregions (NUT1) and 16 provinces (NUTS2).
+BTW province in Polish is "prowincja" (due to both are from Latin) but actually 
+Polish administrative provice is called "województwo", from "wodzić" -- ie commanding (the armed 
+troops in this context).  This is an old term/custom from the 14th century, 
+where Poland was divided into provinces (every province
+ruled by a "wojewoda" ie chief of that province). More can be found
+at Wikipedia (cf [Administrative divisions of Poland](https://en.wikipedia.org/wiki/Administrative_divisions_of_Poland))
+
+NUTS3 consists of 380 counties grouped into 72 subregions.
+
+A Polish county (called "powiat") is 2-nd level administrative unit. 
+
+In ancient Poland powiat was called
+"starostwo" and the head of a "starostwo was called "starosta". "Stary" means Old, so
+"starosta" is an old (and thus wise) person. 
+BTW the head of powiat is "starosta" as 600 years ago:-)
+
+![](./polska_nuts3-2016_r.png){width=80%}
+
+The 3rd level administrative unit is called "gmina" (community). 
+
+There are (approximately) 380 counties and 2750 communities in Poland. 
+
+As Poland population is 38,5 mln and the area equals 312,7
+sq kilometers (120 persons per 1 sqkm) on the average each powiat has 820 sqkm and each community
+has 113.5 sqkm or approximately 100 thousand persons per "powiat and 14 thousand per "gmina".
+
+**TERYT** is a Polish NUTS (developed some 50 years ago). It is complex system which includes
+identification of administrative units. Every unit has (up to) a 7-digit id number: wwppggt
+where ww = "województwo" id, pp = "powiat" id, gg = "gmina" id and "t" decodes type-of-community
+(rural, municipal or mixed). Higher units has trailing zeros for irrelevant part of id, so
+14 or 1400000 means the same; as well as 1205 and 1205000. Six numbers is enough to identify
+a community (approx 2750 units).
+
+So you are now experts on administrative division of Poland, and we can
+go back to statistical charts...
+
+
+## Strip charts
+
+A strip chart (strip plot) shows *the distribution* of data points along
+a numerical axis.These plots are suitable compared 
+to box plots when sample sizes are small (because preserve more information about the data).
+
+Example: Number of hotels in powiat by region (NUTS1, 2017):
+
+```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
+#d <- read.csv("powiaty_wskazniki_woj_regiony.csv", sep = ';',  header=T, na.string="NA");
+#d$wteryt <- as.factor(d$wteryt)
+
+p4<-ggplot(d, aes(x=nuts1, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.0), cex=.2)
+p3<-ggplot(d, aes(x=nuts1, y=hotele2017)) +
+  geom_point(alpha = 1/20)
+  #geom_point(size = .3)
+  #geom_jitter(position=position_jitter(0.05), cex=1.2)
+ggarrange(p4,p3, ncol = 2, nrow = 1)
+```
+
+The biggest potential problem with a dot/scatterplot is overplotting: 
+whenever one has more than a few points, points may be plotted on top of one another. 
+This can severely distort the visual appearance of the plot (left panel)
+
+There is no one solution to this problem, but there are some techniques that can help: 
+use smaller dots, use semi-transparent dots (right panel), use jitter.
+
+Jitter---a small random noise added to data, is shown below
+(higher jitter on the right panel)
+
+```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
+p1<-ggplot(d, aes(x=nuts1, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.2), cex=.2)
+p2<-ggplot(d, aes(x=nuts1, y=hotele2017)) +
+   geom_jitter(position=position_jitter(0.1), cex=.2)
+ggarrange(p2,p1, ncol = 2, nrow = 1)
+```
+
+
+## Comparing distributions box-plots vs strip-charts
 
 Number of hotels in powiat by województwo (2017):
 
 ```{r, cache = F, echo=F, dependson = "pl_hotel_data"}
+d$wteryt <- as.factor(d$wteryt)
+
 p3<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
    geom_jitter(position=position_jitter(0.05), cex=.3)
 p4<-ggplot(d, aes(x=wteryt, y=hotele2017)) +
@@ -355,6 +378,7 @@ p6 <- ggplot(d, aes(x=wteryt, y=hotele2017, fill=wteryt)) + geom_boxplot(outlier
       theme(legend.position="none")
 ggarrange(p5,p6,ncol = 2, nrow = 1)
 ```
+
 
 ## Scatter-plots
 
@@ -448,12 +472,13 @@ dS <-  subset(dA, (! bornCountryCode == "" )) # by country of birth
 nrow(dS) # how many
 ```
 
-aggregate by bornCountryCode
+aggregate NP-winners by bornCountryCode:
 
 ```{r, cache = F, echo=F }
 u <- table(dS$bornCountryCode)
 uf <- as.data.frame(u)
 ```
+
 Finally plot the resulting data using various Y-axis scales (arithmetic, log2 and log10)
 
 ```{r, cache = F, echo=F }
@@ -643,7 +668,7 @@ weighted orientation method (to 45 degrees).
 
 **Exercise**: assess which slope is the steepest one and which is the smallest one?
 
-![](./CO2M_0.jpg){width=60%}
+![](./CO2M_0.jpg){width=75%}
 
 BTW: every chart presents the same data 
 on CO2 emission (average for May each year) 
@@ -786,7 +811,7 @@ or better, using bar/dot charts:
 ggarrange(px2, px3, px4, px9, ncol = 2, nrow = 2);
 ```
 
-## Even worse graphics (yes we can:-) )
+## Even worse graphics (yes we can:-))
 
 Piecharts are notorious for obscurity:
 
@@ -811,7 +836,52 @@ Not mention about strange tilt to the left...
 Popular posters distributed during protest to persuade the
 public opinion that teachers are much worse then they used to be.
 
+**Average salary in education sector as % of total avarage**
+
 ![](procent_w_procencie_w_edukacji.jpg)
+
+"Improved" variants of this chart:
+
+```{r, cache = F, echo=F, warning=FALSE, error=FALSE}
+pwp <- read.csv("pwp.csv", sep = ';',  header=T, na.string="NA");
+
+pwp1 <- ggplot(pwp, aes(x = as.Date(date))) +
+  geom_point(aes(y = prc), colour="pink", size=1.5) +
+  ylab(label="") +
+  theme_bw() + theme(panel.border=element_blank(), panel.grid.minor=element_blank(), axis.line = element_line(colour = "black")) +
+  coord_cartesian(ylim = c(0, 106)) +
+  labs(colour = "") +
+  theme(legend.position="top") +
+  theme(aspect.ratio=0.4)
+
+pwp2 <- ggplot(pwp, aes(x = as.Date(date))) +
+  geom_line(aes(y = prc), colour="pink", size=1.5) +
+  ylab(label="") +
+  theme_bw() + theme(panel.border=element_blank(), panel.grid.minor=element_blank(), axis.line = element_line(colour = "black")) +
+  coord_cartesian(ylim = c(0, 106)) +
+  labs(colour = "") +
+  theme(legend.position="top") +
+  theme(aspect.ratio=0.4)
+
+pwp3 <- ggplot(pwp, aes(x = as.Date(date))) +
+  geom_point(aes(y = prc), colour="pink", size=1.5) +
+  ylab(label="") +
+  theme_bw() + theme(panel.border=element_blank(), panel.grid.minor=element_blank(), axis.line = element_line(colour = "black")) +
+  labs(colour = "") +
+  theme(legend.position="top") +
+  theme(aspect.ratio=0.4)
+
+pwp4 <- ggplot(pwp, aes(x = as.Date(date))) +
+  geom_line(aes(y = prc), colour="pink", size=1.5) +
+  ylab(label="") +
+  theme_bw() + theme(panel.border=element_blank(), panel.grid.minor=element_blank(), axis.line = element_line(colour = "black")) +
+  labs(colour = "") +
+  theme(legend.position="top") +
+  theme(aspect.ratio=0.4)
+ggarrange(pwp1, pwp2, pwp3, pwp4, ncol = 2, nrow = 2);
+```
+
+**Public expenditures on education**
 
 ![](tvn_wykres-edukacja.png)
 
